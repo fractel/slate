@@ -218,14 +218,13 @@ Incoming messages can be routed to one of several destination options: a configu
 
 The `value` parameter contains the corresponding setting for the destination.
 
-`type` | `value` | `Example`
+Type | Value | Example
 ------ | ------- | --------
-`Device` | The ID for the destination device | ???
-`Email`  | An email address                  | bingo@stokes.com
-`URL`    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
-`Forward` | A forwarding phone number        | 3211234567
-`None`    | _None_                           |
 Device | The ID for the destination device | 987123543678
+Email  | An email address                  | bingo@stokes.com
+URL    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
+Forward | A forwarding phone number        | 3211234567
+None    | _None_                           |
 
 #### Callback Data
 
