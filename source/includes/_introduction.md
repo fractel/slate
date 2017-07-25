@@ -18,7 +18,7 @@ All URLs referenced in the documentation have the following base:
 
 ## Dates and Times
 
-Representation of dates and times are in [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (_UTC_). The Fonestorm API accepts and returns dates and times that are represented using [ISO 8601]() formats.
+Representation of dates and times are in [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (_UTC_). The Fonestorm API accepts and returns dates and times that are represented using [ISO 8601](https://www.w3.org/TR/NOTE-datetime) formats.
 
 ## Rate limiting
 
