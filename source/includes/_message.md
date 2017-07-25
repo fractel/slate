@@ -225,6 +225,7 @@ The `value` parameter contains the corresponding setting for the destination.
 `URL`    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
 `Forward` | A forwarding phone number        | 3211234567
 `None`    | _None_                           |
+Device | The ID for the destination device | 987123543678
 
 #### Callback Data
 
