@@ -212,19 +212,19 @@ value | string | | Value of the chosen message routing type. Allows for a _Devic
 
 #### `type`
 
-Incoming messages can be diverted to a single destination -- a `Device` (most likely a desk or mobile telephone), a valid `Email` address, a callback `URL`, or `Forward` to another telephone number. There is also the option to set the destination to `None`, in which case messages are deleted upon receipt without any delivery. Use the `type` parameter to specify the type of destination.
+Incoming messages can be routed to one of several destination options: a configured and registered `Device` (e.g. SIP handset, Fractelfone mobile app, or WebRTC endpoint), a valid `Email` address, a callback `URL`, or `Forward` to another telephone number. There is also the option to set the destination to `None`, in which case messages are deleted upon receipt without any delivery. Use the `type` parameter to specify the type of destination.
 
 #### `value`
 
 The `value` parameter contains the corresponding setting for the destination.
 
-`type` | `value` | `Example`
+Type | Value | Example
 ------ | ------- | --------
-`Device` | The ID for the destination device | ???
-`Email`  | An email address                  | bingo@stokes.com
-`URL`    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
-`Forward` | A forwarding phone number        | 3211234567
-`None`    | _None_                           |
+Device | The ID for the destination device | 987123543678
+Email  | An email address                  | bingo@stokes.com
+URL    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
+Forward | A forwarding phone number        | 3211234567
+None    | _None_                           |
 
 #### Callback Data
 
