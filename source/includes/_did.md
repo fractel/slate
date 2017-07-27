@@ -257,7 +257,7 @@ url_password<br/>_optional_ | string |  | URL password for HTTP **Basic** authen
 
 #### `url_method`
 
-When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the FracTEL &reg; phone number. One of three available methods must be specified for the execution.
+When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the FracTEL phone number. One of three available methods must be specified for the execution.
 - `GET` returns data through query string parameters on a `GET` to the given URL.
 - `POST` returns data as _(application/x-www-form-urlencoded)_ in the body of a `POST` to the given URL.
 - `JSON` returns data as _(application/json)_ in the body of a `POST` to the given URL.
