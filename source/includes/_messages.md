@@ -1,6 +1,9 @@
-# Messaging
+# Messages
 
 ## Send
+
+includes:
+  - introduction
 
 > Example Request
 
@@ -35,21 +38,21 @@ Send an SMS or MMS message to a recipient.
 
 Method | Route
 --------- | -------
-**POST** | `/message/send`
+**POST** | `/messages/send`
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 to | string |  | The recipient's 10 digit phone number.
-from | string | | Your 10 digit FracTEL phone number.
+from | string | | Your 10 digit fonenumber.
 message | string | | Contents of the SMS or MMS.
 media_url<br/>_optional_ | array[string] | | Valid HTTP or HTTPS URL(s) for media to send via MMS. See **Notes** for additional information.
 confirmation_url<br/>_optional_ | string | | Valid HTTP or HTTPS URL that will accept callback data after the message is sent. See **Notes** for additional information.
 require_confirmation<br/>_optional_ | string | | Only send message if confirmation is available. See **Notes** for additional information.
 
 <aside class="notice">
-Networks impose a limit of one message per second per sending (`from`) phone number. Calls that exceed this rate limit will receive an error code of `400 - Rate Limit Exceeded`.
+Networks impose a limit of one message per second per sending (`from`) number. Calls that exceed this rate limit will receive an error code of `400 - Rate Limit Exceeded`.
 </aside>
 
 ### Notes
@@ -92,7 +95,7 @@ Message sending confirmation callback URLs receive JSON data via a <code>POST</c
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 to | string | | Phone number of recipient.
-from | string | | Phone number of sender.
+from | string | | Fonenumber of sender.
 message | string | | Contents of the message.
 deliverystate | string | | Delivery state of the message. Potential values are `waiting`, `delivered` or  `not-delivered`.
 deliverycode | int | | Delivery code of the message. Potential values are: <ul><li>`000` - Message delivered to carrier</li><li>`100` - Message not delivered to carrier</li><li>`187` - Statistical spam detected</li><li>`188` - Keyword spam detected</li><li>`189` - Spam detected</li><li>`482` - Loop detected</li><li>`600` - Destination carrier could not accept messages</li><li>`610` - Message submission failed</li><li>`620` - Destination application error</li><li>`630` - Message not acknowledged</li><li>`720` - Invalid destination number</li><li>`740` - Invalid source number</li><li>`999` - Unknown error</li></ul>
@@ -102,6 +105,10 @@ deliverycode | int | | Delivery code of the message. Potential values are: <ul><
 If this is set to `false`, and a message cannot be delivered with a confirmation option, the API will send the message anyway. This is the default behavior if this parameter is omitted.
 
 If this is set to `true`, and a message cannot be delivered with a confirmation option, the API will return an error and the message will NOT be sent.
+
+<aside class="notice">
+Sending messages may result in additional charges and fees to your account.
+</aside>
 
 ## Send Notify
 
@@ -134,13 +141,13 @@ Configure the callback URL to notify when a message is sent. Each FracTEL phone 
 
 Method | Route
 --------- | -------
-**POST** | `/message/send_notify`
+**POST** | `/messages/send_notify`
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-from | string |  | Your FracTEL phone number.
+from | string |  | Your fonenumber.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 
@@ -148,11 +155,12 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 #### `url`
 
-This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent from the FracTEL phone number specified in `from`.
+This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent from the fonenumber specified in `from`.
 
 #### `method`
 
 One of three available methods must be specified for the callback execution.
+
 - `GET` returns data through query string parameters on a `GET` to the given URL.
 - `POST` returns data as _(application/x-www-form-urlencoded)_ in the body of a `POST` to the given URL.
 - `JSON` returns data as _(application/json)_ in the body of a `POST` to the given URL.
@@ -162,7 +170,7 @@ One of three available methods must be specified for the callback execution.
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 to | string | | Phone number of recipient.
-from | string | | Phone number of sender.
+from | string | | Fonenumber of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
@@ -198,13 +206,13 @@ Configure the delivery service type used as the destination for received message
 
 Method | Route
 --------- | -------
-**POST** | `/message/receive`
+**POST** | `/messages/receive`
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your FracTEL phone number.
+to | string |  | Your fonenumber.
 type | string | | Message service routing type. Allowed values are `Device`, `Email`, `URL`, `Forward`, or `None`. See **Notes** for additional information.
 value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_ or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
 
@@ -230,7 +238,7 @@ None    | _None_                           |
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string | | Phone number of recipient.
+to | string | | Fonenumber of recipient.
 from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
@@ -262,19 +270,19 @@ $ curl --request POST
 }
 ```
 
-Configure the callback URL to notify when a message is received. Each FracTEL phone number can be configured to use its own callback URL for handling receive notifications.
+Configure the callback URL to notify when a message is received. Each fonenumber can be configured to use its own callback URL for handling receive notifications.
 
 ### HTTP Request
 
 Method | Route
 --------- | -------
-**POST** | `/message/receive_notify`
+**POST** | `/messages/receive_notify`
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your FracTEL phone number.
+to | string |  | Your fonenumber.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 
@@ -287,6 +295,7 @@ This is a valid HTTP or HTTPS URL that will accept callback data when a message 
 #### `method`
 
 One of three available methods must be specified for the callback execution.
+
 - `GET` returns data through query string parameters on a `GET` to the given URL.
 - `POST` returns data as _(application/x-www-form-urlencoded)_ in the body of a `POST` to the given URL.
 - `JSON` returns data as _(application/json)_ in the body of a `POST` to the given URL.
@@ -295,7 +304,7 @@ One of three available methods must be specified for the callback execution.
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string | | Phone number of recipient.
+to | string | | Fonenumber of recipient.
 from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.

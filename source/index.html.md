@@ -1,5 +1,5 @@
 ---
-title: Fonestorm API 2.0.0
+title: Fonestorm API 2.1.0
 
 language_tabs:
   - shell
@@ -10,8 +10,8 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - did
-  - message
+  - fonenumbers
+  - messages
   - errors
 
 search: true
