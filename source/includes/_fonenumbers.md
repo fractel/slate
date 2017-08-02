@@ -1,13 +1,13 @@
-# Telephone Numbers
+# Fonenumbers
 
-## List All Numbers
+## List All Fonenumbers
 
 > Example Request
 
 ```shell
 # Get all DIDs under account.
 $ curl --request GET
---url 'https://api.fractel.net/v2/dids'
+--url 'https://api.fractel.net/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -18,7 +18,7 @@ $ curl --request GET
 ```json
 {
   "statusCode": 200,
-  "dids": [
+  "Fonenumbers": [
     {
       "Number": [
         "3094399908"
@@ -60,22 +60,22 @@ $ curl --request GET
 }
 ```
 
-Get all active DIDs listed under the account.
+Get all active Fonenumbers listed under the account.
 
 ### HTTP Request
 
 Method | Route
 --------- | -------
-**GET** | `/dids`
+**GET** | `/fonenumbers`
 
-## Order New Number
+## Order New Fonenumber
 
 > Example Request
 
 ```shell
 # Order quick DID with a `321` area code.
 $ curl --request POST
---url 'https://api.fractel.net/v2/dids'
+--url 'https://api.fractel.net/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -87,7 +87,7 @@ $ curl --request POST
 ```json
 {
   "statusCode": 200,
-  "did": {
+  "Fonenumber": {
     "RateCenter": [
       "REEDYCREEK"
     ],
@@ -118,13 +118,13 @@ $ curl --request POST
 }
 ```
 
-Order quick DID for account.
+Order a new Fonenumber for the account.
 
 ### HTTP Request
 
 Method | Route
 --------- | -------
-**POST** | `/dids`
+**POST** | `/fonenumbers`
 
 ### Body Parameters
 
@@ -132,14 +132,18 @@ Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 area_code | string |  | A valid 3-digit Area Code.
 
-## Get Number Details
+<aside class="notice">
+Adding a Fonenumber to your account may result in additional charges and fees.
+</aside>
+
+## Get Fonenumber Details
 
 > Example Request
 
 ```shell
 # Get details for DID `3212182662`
 $ curl --request GET
---url 'https://api.fractel.net/v2/dids/3212182662'
+--url 'https://api.fractel.net/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -150,7 +154,7 @@ $ curl --request GET
 ```json
 {
   "statusCode": 200,
-  "did": {
+  "Fonenumber": {
     "T38": [
       "yes"
     ],
@@ -190,21 +194,21 @@ $ curl --request GET
 }
 ```
 
-Get a single DID listed under account.
+Get information for a single Fonenumber listed under the account.
 
 ### HTTP Request
 
 Method | Route
 --------- | -------
-**GET** | `/dids/:did`
+**GET** | `/fonenumbers/:fonenumber`
 
 ### Path Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-did | string |  | Your FracTEL phone number.
+fonenumber | string |  | A Fonenumber associated with the account.
 
-## Update Number
+## Update Fonenumber
 
 > Example Request
 
@@ -212,7 +216,7 @@ did | string |  | Your FracTEL phone number.
 # Set DID service type for DID `3212182662`
 # to receive messages to email address `support@domain.com`
 $ curl --request PUT
---url 'https://api.fractel.net/v2/dids/3212182662'
+--url 'https://api.fractel.net/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -234,19 +238,19 @@ Configure the service type for account DID.
 
 Method | Route
 --------- | -------
-**PUT** | `/dids/:did`
+**PUT** | `/fonenumbers/:fonenumber`
 
 ### Path Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-did | string |  | Your FracTEL phone number.
+fonenumber | string |  | Your Fonenumber.
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-did | string |  | Your FracTEL phone number.
+fonenumber | string |  | Your Fonenumber.
 type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL` or `Forward`.
 value | string |  | Message routing type value.
 url_method<br/>_optional_ | string |  | URL method. Allowed values are `GET`, `POST`, or `JSON`. See Notes for additional information.
@@ -257,19 +261,20 @@ url_password<br/>_optional_ | string |  | URL password for HTTP **Basic** authen
 
 #### `url_method`
 
-When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the FracTEL phone number. One of three available methods must be specified for the execution.
+When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the Fonenumber. One of three available methods must be specified for the execution.
+
 - `GET` returns data through query string parameters on a `GET` to the given URL.
 - `POST` returns data as _(application/x-www-form-urlencoded)_ in the body of a `POST` to the given URL.
 - `JSON` returns data as _(application/json)_ in the body of a `POST` to the given URL.
 
-## Delete Number
+## Delete Fonenumber
 
 > Example Request
 
 ```shell
 # Cancel DID `3212182662` and remove from account.
 $ curl --request DELETE
---url 'https://api.fractel.net/v2/dids/3212182662'
+--url 'https://api.fractel.net/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -280,7 +285,7 @@ $ curl --request DELETE
 ```json
 {
   "statusCode": 200,
-  "did": {
+  "fonenumber": {
     "Result": [
       "CANCELOK"
     ],
@@ -293,16 +298,16 @@ $ curl --request DELETE
 }
 ```
 
-Remove DID from account.
+Remove Fonenumber from account.
 
 ### HTTP Request
 
 Method | Route
 --------- | -------
-**DELETE** | `/dids/:did`
+**DELETE** | `/fonenumbers/:fonenumber`
 
 ### Path Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-did | string |  | Your FracTEL phone number.
+fonenumber | string |  | Your Fonenumber.
