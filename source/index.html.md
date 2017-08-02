@@ -2,7 +2,10 @@
 title: Fonestorm API 2.1.0
 
 language_tabs:
-  - shell
+  - shell: cURL
+  - javascript: Javascript
+  - python: Python
+  - php: PHP
 
 toc_footers:
   - <a href='https://www.fractel.net'>Powered By FracTEL &reg;</a>
