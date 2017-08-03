@@ -23,22 +23,22 @@ $ curl --request GET
       "fonenumber": "8889807630",
       "serviceType": "TimeOfDayRoute",
       "receive": {
-        "url": null,
-        "method": null,
-        "username": null,
-        "password": null
+        "url": "https://hookb.in/Ew7WzAb2",
+        "method": "JSON",
+        "username": "johndoe",
+        "password": "secret"
       },
       "receiveNotify": {
-        "url": null,
-        "method": null,
-        "username": null,
-        "password": null
+        "url": "https://hookb.in/Ew7WzAb2",
+        "method": "JSON",
+        "username": "johndoe",
+        "password": "secret"
       },
       "sendNotify": {
-        "url": null,
-        "method": null,
-        "username": null,
-        "password": null
+        "url": "https://hookb.in/Ew7WzAb2",
+        "method": "JSON",
+        "username": "johndoe",
+        "password": "secret"
       },
       "isActive": "yes"
     }
@@ -142,22 +142,22 @@ $ curl --request GET
     "fonenumber": "3212335701",
     "serviceType": "TrunkGroup",
     "receive": {
-      "url": null,
-      "method": null,
-      "username": null,
-      "password": null
+      "url": "https://hookb.in/Ew7WzAb2",
+      "method": "JSON",
+      "username": "johndoe",
+      "password": "secret"
     },
     "receiveNotify": {
-      "url": null,
-      "method": null,
-      "username": null,
-      "password": null
+      "url": "https://hookb.in/Ew7WzAb2",
+      "method": "JSON",
+      "username": "johndoe",
+      "password": "secret"
     },
     "sendNotify": {
-      "url": null,
-      "method": null,
-      "username": null,
-      "password": null
+      "url": "https://hookb.in/Ew7WzAb2",
+      "method": "JSON",
+      "username": "johndoe",
+      "password": "secret"
     },
     "isActive": "yes"
   },
