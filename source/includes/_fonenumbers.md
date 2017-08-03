@@ -13,6 +13,60 @@ $ curl --request GET
 --header 'token: key'
 ```
 
+```javascript
+var FracTelApi210 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi210.FonenumbersApi();
+
+var opts = {
+  'filter': "filter_example" // String | Filters for the response.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getFonenumbers(opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$filter = "filter_example"; // string | Filters for the response.
+
+try {
+    $result = $api_instance->getFonenumbers($filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->getFonenumbers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.FonenumbersApi()
+filter = 'filter_example' # str | Filters for the response. (optional)
+
+try:
+    # Get all active fonenumbers listed under the account.
+    api_response = api_instance.get_fonenumbers(filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FonenumbersApi->get_fonenumbers: %s\n" % e)
+```
+
 > Example Response
 
 ```json
@@ -82,6 +136,59 @@ $ curl --request POST
 --data '{"area_code": "321" }'
 ```
 
+```javascript
+var FracTelApi210 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi210.FonenumbersApi();
+
+var areaCode = "areaCode_example"; // String | A valid 3-digit Area Code.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postFonenumbers(areaCode, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$area_code = "area_code_example"; // string | A valid 3-digit Area Code.
+
+try {
+    $result = $api_instance->postFonenumbers($area_code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->postFonenumbers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.FonenumbersApi()
+area_code = 'area_code_example' # str | A valid 3-digit Area Code.
+
+try:
+    # Order quick fonenumber for the account.
+    api_response = api_instance.post_fonenumbers(area_code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FonenumbersApi->post_fonenumbers: %s\n" % e)
+```
+
 > Example Response
 
 ```json
@@ -147,6 +254,59 @@ $ curl --request GET
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
+```
+
+```javascript
+var FracTelApi210 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi210.FonenumbersApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getFonenumbersFonenumber(fonenumber, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
+
+try {
+    $result = $api_instance->getFonenumbersFonenumber($fonenumber);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->getFonenumbersFonenumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.FonenumbersApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
+
+try:
+    # Get a single fonenumber listed under the account.
+    api_response = api_instance.get_fonenumbers_fonenumber(fonenumber)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FonenumbersApi->get_fonenumbers_fonenumber: %s\n" % e)
 ```
 
 > Example Response
@@ -223,6 +383,77 @@ $ curl --request PUT
 --data '{"type": "Email", "value": "support@domain.com"}'
 ```
 
+```javascript
+var FracTelApi210 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi210.FonenumbersApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
+
+var type = "type_example"; // String | Message routing type.
+
+var opts = {
+  'value': "value_example", // String | Message routing type value.
+  'urlMethod': "urlMethod_example", // String | URL method.
+  'urlUsername': "urlUsername_example", // String | URL auth username.
+  'urlPassword': "urlPassword_example" // String | URL auth password.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.putFonenumbersFonenumber(fonenumber, type, opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
+$type = "type_example"; // string | Message routing type.
+$value = "value_example"; // string | Message routing type value.
+$url_method = "url_method_example"; // string | URL method.
+$url_username = "url_username_example"; // string | URL auth username.
+$url_password = "url_password_example"; // string | URL auth password.
+
+try {
+    $result = $api_instance->putFonenumbersFonenumber($fonenumber, $type, $value, $url_method, $url_username, $url_password);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->putFonenumbersFonenumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.FonenumbersApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
+type = 'type_example' # str | Message routing type.
+value = 'value_example' # str | Message routing type value. (optional)
+url_method = 'url_method_example' # str | URL method. (optional)
+url_username = 'url_username_example' # str | URL auth username. (optional)
+url_password = 'url_password_example' # str | URL auth password. (optional)
+
+try:
+    # Configure the service type for an account fonenumber.
+    api_response = api_instance.put_fonenumbers_fonenumber(fonenumber, type, value=value, url_method=url_method, url_username=url_username, url_password=url_password)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FonenumbersApi->put_fonenumbers_fonenumber: %s\n" % e)
+```
+
 > Example Response
 
 ```json
@@ -278,6 +509,59 @@ $ curl --request DELETE
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
+```
+
+```javascript
+var FracTelApi210 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi210.FonenumbersApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.deleteFonenumbersFonenumber(fonenumber, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\FonenumbersApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
+
+try {
+    $result = $api_instance->deleteFonenumbersFonenumber($fonenumber);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FonenumbersApi->deleteFonenumbersFonenumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.FonenumbersApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
+
+try:
+    # Remove fonenumber from the account.
+    api_response = api_instance.delete_fonenumbers_fonenumber(fonenumber)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FonenumbersApi->delete_fonenumbers_fonenumber: %s\n" % e)
 ```
 
 > Example Response
