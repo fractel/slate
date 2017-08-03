@@ -5,7 +5,7 @@
 > Example Request
 
 ```shell
-# Get all DIDs under account.
+# Get all fonenumbers under account.
 $ curl --request GET
 --url 'https://api.fractel.net/v2/fonenumbers'
 --header 'Content-Type: application/json'
@@ -18,41 +18,29 @@ $ curl --request GET
 ```json
 {
   "statusCode": 200,
-  "Fonenumbers": [
+  "fonenumbers": [
     {
-      "Number": [
-        "3094399908"
-      ],
-      "RegionBlock": [
-        "na"
-      ],
-      "CNAMLookup": [
-        "yes"
-      ],
-      "AccountCode": [
-        "2005551524"
-      ],
-      "ServiceOption": [
-        "475744919148"
-      ],
-      "ServiceType": [
-        "Device"
-      ],
-      "T38": [
-        "yes"
-      ],
-      "SMS": [
-        "no"
-      ],
-      "PortedNumber": [
-        "no"
-      ],
-      "ActivateDate": [
-        "2017-01-06 10:09:51"
-      ],
-      "RewriteTo": [
-        ""
-      ]
+      "fonenumber": "8889807630",
+      "serviceType": "TimeOfDayRoute",
+      "receive": {
+        "url": null,
+        "method": null,
+        "username": null,
+        "password": null
+      },
+      "receiveNotify": {
+        "url": null,
+        "method": null,
+        "username": null,
+        "password": null
+      },
+      "sendNotify": {
+        "url": null,
+        "method": null,
+        "username": null,
+        "password": null
+      },
+      "isActive": "yes"
     }
   ],
   "total": 1,
@@ -73,7 +61,7 @@ Method | Route
 > Example Request
 
 ```shell
-# Order quick DID with a `321` area code.
+# Order quick fonenumber with a `321` area code.
 $ curl --request POST
 --url 'https://api.fractel.net/v2/fonenumbers'
 --header 'Content-Type: application/json'
@@ -87,31 +75,12 @@ $ curl --request POST
 ```json
 {
   "statusCode": 200,
-  "Fonenumber": {
-    "RateCenter": [
-      "REEDYCREEK"
-    ],
-    "State": [
-      "FL"
-    ],
-    "MMS": [
-      "yes"
-    ],
-    "Tier": [
-      "B"
-    ],
-    "Result": [
-      "SUCCESS"
-    ],
-    "Number": [
-      "3212182662"
-    ],
-    "T38": [
-      "yes"
-    ],
-    "SMS": [
-      "yes"
-    ]
+  "fonenumber": {
+    "fonenumber": "3212335701",
+    "smsEnabled": "yes",
+    "mmsEnabled": "yes",
+    "state": "FL",
+    "rateCenter": "SANFORD"
   },
   "result": "SUCCESS",
   "total": 1
@@ -141,7 +110,7 @@ Adding a Fonenumber to your account may result in additional charges and fees.
 > Example Request
 
 ```shell
-# Get details for DID `3212182662`
+# Get details for fonenumber `3212182662`
 $ curl --request GET
 --url 'https://api.fractel.net/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
@@ -154,40 +123,28 @@ $ curl --request GET
 ```json
 {
   "statusCode": 200,
-  "Fonenumber": {
-    "T38": [
-      "yes"
-    ],
-    "ServiceType": [
-      "TrunkGroup"
-    ],
-    "SMS": [
-      "yes"
-    ],
-    "PortedNumber": [
-      "no"
-    ],
-    "ActivateDate": [
-      "2017-07-27 04:33:32"
-    ],
-    "RewriteTo": [
-      ""
-    ],
-    "AccountCode": [
-      "2005551524"
-    ],
-    "ServiceOption": [
-      "2005551524"
-    ],
-    "Number": [
-      "3212182662"
-    ],
-    "RegionBlock": [
-      "na"
-    ],
-    "CNAMLookup": [
-      "yes"
-    ]
+  "fonenumber": {
+    "fonenumber": "3212335701",
+    "serviceType": "TrunkGroup",
+    "receive": {
+      "url": null,
+      "method": null,
+      "username": null,
+      "password": null
+    },
+    "receiveNotify": {
+      "url": null,
+      "method": null,
+      "username": null,
+      "password": null
+    },
+    "sendNotify": {
+      "url": null,
+      "method": null,
+      "username": null,
+      "password": null
+    },
+    "isActive": "yes"
   },
   "total": 1,
   "result": "SUCCESS"
@@ -213,7 +170,7 @@ fonenumber | string |  | A Fonenumber associated with the account.
 > Example Request
 
 ```shell
-# Set DID service type for DID `3212182662`
+# Set fonenumber service type for `3212182662`
 # to receive messages to email address `support@domain.com`
 $ curl --request PUT
 --url 'https://api.fractel.net/v2/fonenumbers/3212182662'
@@ -232,7 +189,7 @@ $ curl --request PUT
 }
 ```
 
-Configure the service type for account DID.
+Configure the service type for account Fonenumber.
 
 ### HTTP Request
 
@@ -272,7 +229,7 @@ When `type` is `URL` then `url_method` is required. The URL `value` is expected 
 > Example Request
 
 ```shell
-# Cancel DID `3212182662` and remove from account.
+# Cancel fonenumber `3212182662` and remove from account.
 $ curl --request DELETE
 --url 'https://api.fractel.net/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
@@ -285,16 +242,8 @@ $ curl --request DELETE
 ```json
 {
   "statusCode": 200,
-  "fonenumber": {
-    "Result": [
-      "CANCELOK"
-    ],
-    "Number": [
-      "3212182662"
-    ]
-  },
-  "result": "SUCCESS",
-  "total": 1
+  "fonenumber": "3212335701",
+  "result": "SUCCESS"
 }
 ```
 
