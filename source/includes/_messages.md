@@ -1,9 +1,6 @@
 # Messages
 
-## Send
-
-includes:
-  - introduction
+## Send Message
 
 > Example Request
 
@@ -20,6 +17,84 @@ $ curl --request POST
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to":"3211234567", "from": "3211234566", "message": "Hello%20World", "media_url": "https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png", "confirmation_url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9", "require_confirmation": false}'
+```
+
+```javascript
+var FracTelApi211 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi211.MessagesApi();
+
+var to = "to_example"; // String | The recipient's 10 digits phone number.
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number to use as from
+
+var message = "message_example"; // String | Content of SMS
+
+var opts = {
+  'mediaUrl': ["mediaUrl_example"], // [String] | URL for media for send via SMS (up to 10)
+  'confirmationUrl': "confirmationUrl_example", // String | Callback URL for confirmation
+  'confirmationUrlUsername': "confirmationUrlUsername_example", // String | Callback URL username for confirmation
+  'confirmationUrlPassword': "confirmationUrlPassword_example", // String | Callback URL password for confirmation
+  'requireConfirmation': true // Boolean | Only send message if confirmation is available
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesSend(to, fonenumber, message, opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$to = "to_example"; // string | The recipient's 10 digits phone number.
+$fonenumber = "fonenumber_example"; // string | Your FracTEL phone number to use as from
+$message = "message_example"; // string | Content of SMS
+$media_url = array("media_url_example"); // string[] | URL for media for send via SMS (up to 10)
+$confirmation_url = "confirmation_url_example"; // string | Callback URL for confirmation
+$confirmation_url_username = "confirmation_url_username_example"; // string | Callback URL username for confirmation
+$confirmation_url_password = "confirmation_url_password_example"; // string | Callback URL password for confirmation
+$require_confirmation = true; // bool | Only send message if confirmation is available
+
+try {
+    $result = $api_instance->postMessagesSend($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesSend: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+to = 'to_example' # str | The recipient's 10 digits phone number.
+fonenumber = 'fonenumber_example' # str | Your FracTEL phone number to use as from
+message = 'message_example' # str | Content of SMS
+media_url = ['media_url_example'] # list[str] | URL for media for send via SMS (up to 10) (optional)
+confirmation_url = 'confirmation_url_example' # str | Callback URL for confirmation (optional)
+confirmation_url_username = 'confirmation_url_username_example' # str | Callback URL username for confirmation (optional)
+confirmation_url_password = 'confirmation_url_password_example' # str | Callback URL password for confirmation (optional)
+require_confirmation = true # bool | Only send message if confirmation is available (optional)
+
+try:
+    # Send an SMS or MMS message to a recipient.
+    api_response = api_instance.post_messages_send(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, confirmation_url_username=confirmation_url_username, confirmation_url_password=confirmation_url_password, require_confirmation=require_confirmation)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_send: %s\n" % e)
 ```
 
 > Example Response
@@ -126,6 +201,75 @@ curl --request POST
 --data '{"from":"3211234567", "method":"POST", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9" }'
 ```
 
+```javascript
+var FracTelApi211 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi211.MessagesApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number
+
+var method = "method_example"; // String | Callback URL method.
+
+var url = "url_example"; // String | Callback URL.
+
+var opts = {
+  'urlUsername': "urlUsername_example", // String | Callback URL username.
+  'urlPassword': "urlPassword_example" // String | Callback URL password.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesSendNotify(fonenumber, method, url, opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL phone number
+$method = "method_example"; // string | Callback URL method.
+$url = "url_example"; // string | Callback URL.
+$url_username = "url_username_example"; // string | Callback URL username.
+$url_password = "url_password_example"; // string | Callback URL password.
+
+try {
+    $result = $api_instance->postMessagesSendNotify($fonenumber, $method, $url, $url_username, $url_password);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesSendNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL phone number
+method = 'method_example' # str | Callback URL method.
+url = 'url_example' # str | Callback URL.
+url_username = 'url_username_example' # str | Callback URL username. (optional)
+url_password = 'url_password_example' # str | Callback URL password. (optional)
+
+try:
+    # Configure the callback URL to notify when a message is sent.
+    api_response = api_instance.post_messages_send_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_send_notify: %s\n" % e)
+```
+
 > Example Response
 
 ```json
@@ -189,6 +333,77 @@ $ curl --request POST
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to": "3211234567", "type": "Email", "value": "email@domain.com"}'
+```
+
+```javascript
+var FracTelApi211 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi211.MessagesApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
+
+var type = "type_example"; // String | Message routing type.
+
+var opts = {
+  'value': "value_example", // String | Message routing type value.
+  'urlMethod': "urlMethod_example", // String | URL method when type is URL.
+  'urlUsername': "urlUsername_example", // String | Optional URL username when type is URL.
+  'urlPassword': "urlPassword_example" // String | Optional URL password when type is URL.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesReceive(fonenumber, type, opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL phone number.
+$type = "type_example"; // string | Message routing type.
+$value = "value_example"; // string | Message routing type value.
+$url_method = "url_method_example"; // string | URL method when type is URL.
+$url_username = "url_username_example"; // string | Optional URL username when type is URL.
+$url_password = "url_password_example"; // string | Optional URL password when type is URL.
+
+try {
+    $result = $api_instance->postMessagesReceive($fonenumber, $type, $value, $url_method, $url_username, $url_password);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesReceive: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL phone number.
+type = 'type_example' # str | Message routing type.
+value = 'value_example' # str | Message routing type value. (optional)
+url_method = 'url_method_example' # str | URL method when type is URL. (optional)
+url_username = 'url_username_example' # str | Optional URL username when type is URL. (optional)
+url_password = 'url_password_example' # str | Optional URL password when type is URL. (optional)
+
+try:
+    # Configure the delivery service type used as the destination for received messages.
+    api_response = api_instance.post_messages_receive(fonenumber, type, value=value, url_method=url_method, url_username=url_username, url_password=url_password)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_receive: %s\n" % e)
 ```
 
 > Example Response
@@ -259,6 +474,75 @@ $ curl --request POST
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to": "3211234567", "method": "JSON", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9"}'
+```
+
+```javascript
+var FracTelApi211 = require('frac_tel_api_211');
+
+var apiInstance = new FracTelApi211.MessagesApi();
+
+var fonenumber = "fonenumber_example"; // String | Your FracTEL phone number.
+
+var method = "method_example"; // String | Callback URL method.
+
+var url = "url_example"; // String | Callback URL.
+
+var opts = {
+  'urlUsername': "urlUsername_example", // String | Callback URL username.
+  'urlPassword': "urlPassword_example" // String | Callback URL password.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesReceiveNotify(fonenumber, method, url, opts, callback);
+```
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "fonenumber_example"; // string | Your FracTEL phone number.
+$method = "method_example"; // string | Callback URL method.
+$url = "url_example"; // string | Callback URL.
+$url_username = "url_username_example"; // string | Callback URL username.
+$url_password = "url_password_example"; // string | Callback URL password.
+
+try {
+    $result = $api_instance->postMessagesReceiveNotify($fonenumber, $method, $url, $url_username, $url_password);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesReceiveNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = 'fonenumber_example' # str | Your FracTEL phone number.
+method = 'method_example' # str | Callback URL method.
+url = 'url_example' # str | Callback URL.
+url_username = 'url_username_example' # str | Callback URL username. (optional)
+url_password = 'url_password_example' # str | Callback URL password. (optional)
+
+try:
+    # Configure the callback URL to notify when a message is received.
+    api_response = api_instance.post_messages_receive_notify(fonenumber, method, url, url_username=url_username, url_password=url_password)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_receive_notify: %s\n" % e)
 ```
 
 > Example Response
