@@ -10,3 +10,9 @@ th {
 td em {
   color: #666;
 }
+
+.page-wrapper > .content blockquote {
+  padding: 1em !important;
+  font-size: 150%;
+  font-weight: bold;
+}
