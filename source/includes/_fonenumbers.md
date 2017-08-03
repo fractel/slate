@@ -24,21 +24,15 @@ $ curl --request GET
       "serviceType": "TimeOfDayRoute",
       "receive": {
         "url": "https://hookb.in/Ew7WzAb2",
-        "method": "JSON",
-        "username": "johndoe",
-        "password": "secret"
+        "method": "JSON"
       },
       "receiveNotify": {
         "url": "https://hookb.in/Ew7WzAb2",
-        "method": "JSON",
-        "username": "johndoe",
-        "password": "secret"
+        "method": "JSON"
       },
       "sendNotify": {
         "url": "https://hookb.in/Ew7WzAb2",
-        "method": "JSON",
-        "username": "johndoe",
-        "password": "secret"
+        "method": "JSON"
       },
       "isActive": "yes"
     }
@@ -143,21 +137,15 @@ $ curl --request GET
     "serviceType": "TrunkGroup",
     "receive": {
       "url": "https://hookb.in/Ew7WzAb2",
-      "method": "JSON",
-      "username": "johndoe",
-      "password": "secret"
+      "method": "JSON"
     },
     "receiveNotify": {
       "url": "https://hookb.in/Ew7WzAb2",
-      "method": "JSON",
-      "username": "johndoe",
-      "password": "secret"
+      "method": "JSON"
     },
     "sendNotify": {
       "url": "https://hookb.in/Ew7WzAb2",
-      "method": "JSON",
-      "username": "johndoe",
-      "password": "secret"
+      "method": "JSON"
     },
     "isActive": "yes"
   },
