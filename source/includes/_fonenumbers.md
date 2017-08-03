@@ -56,6 +56,21 @@ Method | Route
 --------- | -------
 **GET** | `/fonenumbers`
 
+### Query Parameters
+
+Parameter | Type | Default | Description
+--------- | ------- | ----------- | -----------
+filter | string | fonenumbers | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See Notes for additional information.
+
+### Notes
+
+#### `filter`
+
+The default `filter` value is `fonenumbers`. For a more detailed response you may use `all`.
+
+- `fonenumbers` returns an array of fonenumber strings.
+- `all` returns an array of fonenumber objects.
+
 ## Order New Fonenumber
 
 > Example Request
