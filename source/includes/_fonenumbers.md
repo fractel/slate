@@ -160,7 +160,6 @@ $ curl --request GET
     "mms_enabled": "no",
     "is_active": "yes"
   },
-  "total": 1,
   "result": "SUCCESS"
 }
 ```
