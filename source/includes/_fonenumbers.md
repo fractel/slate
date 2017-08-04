@@ -7,7 +7,7 @@
 ```shell
 # Get all fonenumbers under account.
 $ curl --request GET
---url 'https://api.fractel.net/v2/fonenumbers'
+--url 'https://api.fonestorm.com/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -78,7 +78,7 @@ The default `filter` value is `fonenumbers`. For a more detailed response you ma
 ```shell
 # Order quick fonenumber with a `321` area code.
 $ curl --request POST
---url 'https://api.fractel.net/v2/fonenumbers'
+--url 'https://api.fonestorm.com/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -126,7 +126,7 @@ Adding a Fonenumber to your account may result in additional charges and fees.
 ```shell
 # Get details for fonenumber `3212182662`
 $ curl --request GET
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -186,7 +186,7 @@ fonenumber | string |  | A Fonenumber associated with the account.
 # Set fonenumber service type for `3212182662`
 # to receive messages to email address `support@domain.com`
 $ curl --request PUT
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -244,7 +244,7 @@ When `type` is `URL` then `url_method` is required. The URL `value` is expected 
 ```shell
 # Cancel fonenumber `3212182662` and remove from account.
 $ curl --request DELETE
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'

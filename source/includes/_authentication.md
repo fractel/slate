@@ -5,7 +5,7 @@
 ```shell
 # Obtain an authentication token that is valid for two hours.
 $ curl --request POST
---url 'https://api.fractel.net/v2/auth'
+--url 'https://api.fonestorm.com/v2/auth'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --data '{"username": "xxx", "password": "xxx", "expires": 7200}'
