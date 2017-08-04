@@ -214,13 +214,13 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.
 type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL` or `Forward`.
 value | string |  | Message routing type value.
 url_method<br/>_optional_ | string |  | URL method. Allowed values are `GET`, `POST`, or `JSON`. See Notes for additional information.
@@ -272,4 +272,4 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.

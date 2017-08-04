@@ -147,7 +147,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-from | string |  | Your fonenumber.
+from | string |  | A Fonenumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 
@@ -212,7 +212,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your fonenumber.
+to | string |  | A Fonenumber associated with the account.
 type | string | | Message service routing type. Allowed values are `Device`, `Email`, `URL`, `Forward`, or `None`. See **Notes** for additional information.
 value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_ or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
 
@@ -282,7 +282,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your fonenumber.
+to | string |  | A Fonenumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 
