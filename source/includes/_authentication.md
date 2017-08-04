@@ -15,7 +15,7 @@ $ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "REGISTERED",
   "token": "1825a1831d69218d474d6829501ac644",
   "expires": "2017-07-13T21:19:30.000Z"

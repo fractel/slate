@@ -17,24 +17,30 @@ $ curl --request GET
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "fonenumbers": [
     {
       "fonenumber": "8889807630",
-      "serviceType": "TimeOfDayRoute",
+      "service_type": "TimeOfDayRoute",
       "receive": {
+        "type": "URL",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "https://hookb.in/Ew7WzAb2",
+        "url_method": "JSON"
+      },
+      "receive_notify": {
         "url": "https://hookb.in/Ew7WzAb2",
         "method": "JSON"
       },
-      "receiveNotify": {
+      "send_notify": {
         "url": "https://hookb.in/Ew7WzAb2",
         "method": "JSON"
       },
-      "sendNotify": {
-        "url": "https://hookb.in/Ew7WzAb2",
-        "method": "JSON"
-      },
-      "isActive": "yes"
+      "sms_enabled": "no",
+      "mms_enabled": "no",
+      "is_active": "yes"
     }
   ],
   "total": 1,
@@ -83,13 +89,13 @@ $ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "fonenumber": {
     "fonenumber": "3212335701",
-    "smsEnabled": "yes",
-    "mmsEnabled": "yes",
+    "sms_enabled": "yes",
+    "mms_enabled": "yes",
     "state": "FL",
-    "rateCenter": "SANFORD"
+    "rate_center": "SANFORD"
   },
   "result": "SUCCESS",
   "total": 1
@@ -131,23 +137,29 @@ $ curl --request GET
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "fonenumber": {
-    "fonenumber": "3212335701",
-    "serviceType": "TrunkGroup",
+    "fonenumber": "8889807630",
+    "service_type": "TimeOfDayRoute",
     "receive": {
+      "type": "URL",
+      "email": "",
+      "device": "",
+      "forward": "",
+      "url": "https://hookb.in/Ew7WzAb2",
+      "url_method": "JSON"
+    },
+    "receive_notify": {
       "url": "https://hookb.in/Ew7WzAb2",
       "method": "JSON"
     },
-    "receiveNotify": {
+    "send_notify": {
       "url": "https://hookb.in/Ew7WzAb2",
       "method": "JSON"
     },
-    "sendNotify": {
-      "url": "https://hookb.in/Ew7WzAb2",
-      "method": "JSON"
-    },
-    "isActive": "yes"
+    "sms_enabled": "no",
+    "mms_enabled": "no",
+    "is_active": "yes"
   },
   "total": 1,
   "result": "SUCCESS"
@@ -187,7 +199,7 @@ $ curl --request PUT
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -244,7 +256,7 @@ $ curl --request DELETE
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "fonenumber": "3212335701",
   "result": "SUCCESS"
 }

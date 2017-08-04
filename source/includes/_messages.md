@@ -26,7 +26,7 @@ $ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS",
   "uid": "574330d1cdd7e1566b61b771ac72295f"
 }
@@ -130,7 +130,7 @@ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -195,7 +195,7 @@ $ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -265,7 +265,7 @@ $ curl --request POST
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
