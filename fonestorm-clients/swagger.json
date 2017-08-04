@@ -1,0 +1,557 @@
+{
+  "swagger": "2.0",
+  "host": "api.fractel.net",
+  "basePath": "/v2",
+  "schemes": ["https"],
+  "info": {
+    "title": "FracTEL API 2.1.1",
+    "version": "2.1.1"
+  },
+  "tags": [{
+    "name": "api",
+    "description": "API Functions",
+    "externalDocs": {
+      "description": "Extended API Documentation",
+      "url": "https://developer.fractel.net/api/2.0.0"
+    }
+  }, {
+    "name": "messaging",
+    "description": "Messaging Functions",
+    "externalDocs": {
+      "description": "Extended API Documentation",
+      "url": "https://developer.fractel.net/api/2.0.0"
+    }
+  }],
+  "security": {
+    "APIKeyHeader": []
+  },
+  "securityDefinitions": {
+    "APIKeyHeader": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token"
+    }
+  },
+  "paths": {
+    "/auth": {
+      "post": {
+        "summary": "Obtain a FracTEL Auth token.",
+        "operationId": "postAuth",
+        "description": "Returns a token that can be used to make authenticated requests",
+        "parameters": [{
+          "type": "string",
+          "description": "FracTEL username",
+          "name": "username",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "FracTEL password",
+          "name": "password",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "integer",
+          "description": "FracTEL Token Life Time in Seconds | Default is 3600 seconds | Maximum is 24 hours",
+          "maximum": 86400,
+          "name": "expires",
+          "in": "formData"
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["auth"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/messages/send": {
+      "post": {
+        "summary": "Send an SMS or MMS message to a recipient.",
+        "operationId": "postMessagesSend",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "The recipient's 10 digits phone number.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "to",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Your FracTEL phone number to use as from",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Content of SMS",
+          "name": "message",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "array",
+          "description": "URL for media for send via SMS (up to 10)",
+          "maxItems": 10,
+          "items": {
+            "type": "string",
+            "x-format": {
+              "uri": {
+                "scheme": ["http", "https"]
+              }
+            }
+          },
+          "collectionFormat": "multi",
+          "name": "media_url",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "Callback URL for confirmation",
+          "x-format": {
+            "uri": {
+              "scheme": ["http", "https"]
+            }
+          },
+          "name": "confirmation_url",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "Callback URL username for confirmation",
+          "name": "confirmation_url_username",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "string",
+          "description": "Callback URL password for confirmation",
+          "name": "confirmation_url_password",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "boolean",
+          "description": "Only send message if confirmation is available",
+          "name": "require_confirmation",
+          "in": "formData"
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["messages"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/messages/send_notify": {
+      "post": {
+        "summary": "Configure the callback URL to notify when a message is sent.",
+        "operationId": "postMessagesSend_notify",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL phone number",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL method.",
+          "enum": ["GET", "POST", "JSON"],
+          "name": "method",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL.",
+          "x-format": {
+            "uri": {
+              "scheme": ["http", "https"]
+            }
+          },
+          "name": "url",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL username.",
+          "name": "url_username",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "string",
+          "description": "Callback URL password.",
+          "name": "url_password",
+          "in": "formData",
+          "required": false
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["messages"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/messages/receive": {
+      "post": {
+        "summary": "Configure the delivery service type used as the destination for received messages.",
+        "operationId": "postMessagesReceive",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL phone number.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Message routing type.",
+          "enum": ["None", "Device", "Email", "URL", "Forward"],
+          "name": "type",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Message routing type value.",
+          "required": ["value", "value", "value", "value"],
+          "x-alternatives": [{
+            "type": "string",
+            "description": "Message routing type value."
+          }, {
+            "type": "string",
+            "description": "Message routing type value."
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-format": {
+              "email": true
+            }
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-format": {
+              "uri": {
+                "scheme": ["http", "https"]
+              }
+            }
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-constraint": {
+              "length": 10
+            }
+          }],
+          "name": "value",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "URL method when type is URL.",
+          "enum": ["GET", "POST", "JSON"],
+          "required": ["url_method"],
+          "x-alternatives": [{
+            "type": "string",
+            "description": "URL method when type is URL.",
+            "enum": ["GET", "POST", "JSON"]
+          }],
+          "name": "url_method",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "Optional URL username when type is URL.",
+          "name": "url_username",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "string",
+          "description": "Optional URL password when type is URL.",
+          "name": "url_password",
+          "in": "formData",
+          "required": false
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["messages"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/messages/receive_notify": {
+      "post": {
+        "summary": "Configure the callback URL to notify when a message is received.",
+        "operationId": "postMessagesReceive_notify",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL phone number.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL method.",
+          "enum": ["GET", "POST", "JSON"],
+          "name": "method",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL.",
+          "x-format": {
+            "uri": {
+              "scheme": ["http", "https"]
+            }
+          },
+          "name": "url",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Callback URL username.",
+          "name": "url_username",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "string",
+          "description": "Callback URL password.",
+          "name": "url_password",
+          "in": "formData",
+          "required": false
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["messages"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/fonenumbers": {
+      "get": {
+        "summary": "Get all active fonenumbers listed under the account.",
+        "operationId": "getFonenumbers",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Filters for the response.",
+          "enum": ["foneNumbers", "all"],
+          "name": "filter",
+          "in": "query",
+          "required": false
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["fonenumbers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Order quick fonenumber for the account.",
+        "operationId": "postFonenumbers",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "A valid 3-digit Area Code.",
+          "x-constraint": {
+            "length": 3
+          },
+          "name": "area_code",
+          "in": "formData",
+          "required": true
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["fonenumbers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/fonenumbers/{fonenumber}": {
+      "get": {
+        "summary": "Get a single fonenumber listed under the account.",
+        "operationId": "getFonenumbersFonenumber",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL fonenumber.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "path",
+          "required": true
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["fonenumbers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Configure the service type for an account fonenumber.",
+        "operationId": "putFonenumbersFonenumber",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL fonenumber.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "path",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Message routing type.",
+          "enum": ["None", "Device", "Email", "URL", "Forward"],
+          "name": "type",
+          "in": "formData",
+          "required": true
+        }, {
+          "type": "string",
+          "description": "Message routing type value.",
+          "required": ["value", "value", "value", "value"],
+          "x-alternatives": [{
+            "type": "string",
+            "description": "Message routing type value."
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-constraint": {
+              "length": 12
+            }
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-format": {
+              "email": true
+            }
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-format": {
+              "uri": {
+                "scheme": ["http", "https"]
+              }
+            }
+          }, {
+            "type": "string",
+            "description": "Message routing type value.",
+            "x-constraint": {
+              "length": 10
+            }
+          }],
+          "name": "value",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "URL method.",
+          "enum": ["GET", "POST", "JSON"],
+          "required": ["url_method"],
+          "x-alternatives": [{
+            "type": "string",
+            "description": "URL method.",
+            "enum": ["GET", "POST", "JSON"]
+          }],
+          "name": "url_method",
+          "in": "formData"
+        }, {
+          "type": "string",
+          "description": "URL auth username.",
+          "name": "url_username",
+          "in": "formData",
+          "required": false
+        }, {
+          "type": "string",
+          "description": "URL auth password.",
+          "name": "url_password",
+          "in": "formData",
+          "required": false
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["fonenumbers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove fonenumber from the account.",
+        "operationId": "deleteFonenumbersFonenumber",
+        "description": "Returns a JSON response",
+        "parameters": [{
+          "type": "string",
+          "description": "Your FracTEL fonenumber.",
+          "x-constraint": {
+            "length": 10
+          },
+          "name": "fonenumber",
+          "in": "path",
+          "required": true
+        }],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "tags": ["fonenumbers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

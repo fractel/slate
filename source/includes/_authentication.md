@@ -8,7 +8,68 @@ $ curl --request POST
 --url 'https://api.fonestorm.com/v2/auth'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
---data '{"username": "xxx", "password": "xxx", "expires": 7200}'
+--data '{"username": "xxxxxxxxxx", "password": "xxxxxxxxxx", "expires": 7200}'
+```
+
+```javascript
+// Obtain an authentication token that is valid for two hours.
+var FracTelApi210 = require('frac_tel_api_210');
+var apiInstance = new FracTelApi210.AuthApi();
+var username = "xxxxxxxxxx";
+var password = "xxxxxxxxxx";
+var opts = {
+  'expires': 7200
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postAuth(username, password, opts, callback);
+```
+
+```php
+<?php
+# Obtain an authentication token that is valid for two hours.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\AuthApi();
+$username = "xxxxxxxxxx";
+$password = "xxxxxxxxxx";
+$expires = 7200;
+
+try {
+    $result = $api_instance->postAuth($username, $password, $expires);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthApi->postAuth: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+# Obtain an authentication token that is valid for two hours.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = swagger_client.AuthApi()
+username = 'xxxxxxxxxx'
+password = 'xxxxxxxxxx'
+expires = 7200
+
+try:
+    # Obtain a FracTEL Auth token
+    api_response = api_instance.post_auth(username, password, expires=expires)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->post_auth: %s\n" % e)
 ```
 
 > Example Response

@@ -30,6 +30,26 @@ Representation of dates and times are in [Coordinated Universal Time](https://en
 
 Standard Fonestorm accounts are limited to 10 requests per second. Some services impose additional rate limits; please check the documentation carefully. Requests that exceed these limits will be rejected. Contact us if your project requires a higher transaction rate.
 
+## Sample Code and API Clients
+
+Fonestorm clients are available in a variety of languages and environments at the [client repository](https://github.com/fractel/fonestorm-clients):
+
+- Bash
+- C#
+- Erlang
+- Java
+- Javascript
+- Perl
+- Rails 5
+- Ruby
+- PHP
+- Python
+- Swift
+
+These clients are auto-generated with [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
+
+Code examples throughout this documentation, with the exception of cURL examples, is based on the use of these clients.
+
 ## Terms and Conditions
 
 Your use of the Fonestorm API is subject to certain [Terms and Conditions](https://www.fractel.net/terms-and-conditions/), and some API calls will allocate resources or perform tasks that incur usage fees and/or charges. You are responsible for understanding these Terms and Conditions and any and all costs associated with use or misuse of the Fonestorm API.

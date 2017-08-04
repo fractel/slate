@@ -12,11 +12,98 @@
 # containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 # with a callback url https://hookb.in/vDkMOVB9
 $ curl --request POST
---url 'https://api.fonestorm.com/v2/message/send'
+--url 'https://api.fonestorm.com/v2/messages/send'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to":"3211234567", "from": "3211234566", "message": "Hello%20World", "media_url": "https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png", "confirmation_url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9", "require_confirmation": false}'
+```
+
+```javascript
+// Send an MMS message "Hello World"
+// that does not require confirmation
+// from FracTEL phone number 3211234566
+// to a recipent 3211234567
+// containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
+// with a callback url https://hookb.in/vDkMOVB9
+var FracTelApi211 = require('frac_tel_api_211');
+var apiInstance = new FracTelApi211.MessagesApi();
+var to = "3211234567";
+var fonenumber = "3211234566";
+var message = "Hello World";
+var opts = {
+  'mediaUrl': ["https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png"],
+  'confirmationUrl': "https://hookb.in/vDkMOVB9",
+  'requireConfirmation': false
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesSend(to, fonenumber, message, opts, callback);
+```
+
+```php
+<?php
+// Send an MMS message "Hello World"
+// that does not require confirmation
+// from FracTEL phone number 3211234566
+// to a recipent 3211234567
+// containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
+// with a callback url https://hookb.in/vDkMOVB9
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$to = "3211234567";
+$fonenumber = "3211234566";
+$message = "Hello World";
+$media_url = array("https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png");
+$confirmation_url = "https://hookb.in/vDkMOVB9";
+$confirmation_url_username = '';
+$confirmation_url_password = '';
+$require_confirmation = false;
+
+try {
+    $result = $api_instance->postMessagesSend($to, $fonenumber, $message, $media_url, $confirmation_url, $confirmation_url_username, $confirmation_url_password, $require_confirmation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesSend: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+# Send an MMS message "Hello World"
+# that does not require confirmation
+# from FracTEL phone number 3211234566
+# to a recipent 3211234567
+# containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
+# with a callback url https://hookb.in/vDkMOVB9
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+to = '3211234567'
+fonenumber = '3211234566'
+message = 'Hello World'
+media_url = ['https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png']
+confirmation_url = 'https://hookb.in/vDkMOVB9'
+require_confirmation = false
+
+try:
+    # Send an SMS or MMS message to a recipient.
+    api_response = api_instance.post_messages_send(to, fonenumber, message, media_url=media_url, confirmation_url=confirmation_url, require_confirmation=require_confirmation)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_send: %s\n" % e)
 ```
 
 > Example Response
@@ -116,11 +203,77 @@ Sending messages may result in additional charges and fees to your account.
 # POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 # when a message is sent.
 curl --request POST
---url 'https://api.fonestorm.com/v2/message/send_notify'
+--url 'https://api.fonestorm.com/v2/messages/send_notify'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"from":"3211234567", "method":"POST", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9" }'
+```
+
+```javascript
+// Configure fonenumber 3211234567 to receive a callback with
+// POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
+// when a message is sent.
+var FracTelApi211 = require('frac_tel_api_211');
+var apiInstance = new FracTelApi211.MessagesApi();
+var fonenumber = "3211234567";
+var method = "POST";
+var url = "https://hookb.in/vDkMOVB9";
+var opts = {};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesSendNotify(fonenumber, method, url, opts, callback);
+```
+
+```php
+<?php
+// Configure fonenumber 3211234567 to receive a callback with
+// POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
+// when a message is sent.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "3211234567";
+$method = "POST";
+$url = "https://hookb.in/vDkMOVB9";
+
+try {
+    $result = $api_instance->postMessagesSendNotify($fonenumber, $method, $url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesSendNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+# Configure fonenumber 3211234567 to receive a callback with
+# POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
+# when a message is sent.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = '3211234567'
+method = 'POST'
+url = 'https://hookb.in/vDkMOVB9'
+
+try:
+    # Configure the callback URL to notify when a message is sent.
+    api_response = api_instance.post_messages_send_notify(fonenumber, method, url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_send_notify: %s\n" % e)
 ```
 
 > Example Response
@@ -181,11 +334,75 @@ Callback URLs using the `GET` method use token replacements to place callback da
 # Deliver all messages received by FracTEL phone number 3211234567
 # to an email address email@domain.
 $ curl --request POST
---url 'https://api.fonestorm.com/v2/message/receive'
+--url 'https://api.fonestorm.com/v2/messages/receive'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to": "3211234567", "type": "Email", "value": "email@domain.com"}'
+```
+
+```javascript
+// Deliver all messages received by fonenumber 3211234567
+// to an email address email@domain.
+var FracTelApi211 = require('frac_tel_api_211');
+var apiInstance = new FracTelApi211.MessagesApi();
+var fonenumber = "3211234567";
+var type = "Email";
+var opts = {
+  'value': "email@domain.com"
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesReceive(fonenumber, type, opts, callback);
+```
+
+```php
+<?php
+// Deliver all messages received by fonenumber 3211234567
+// to an email address email@domain.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "3211234567";
+$type = "Email";
+$value = "email@domain.com";
+
+try {
+    $result = $api_instance->postMessagesReceive($fonenumber, $type, $value);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesReceive: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+# Deliver all messages received by fonenumber 3211234567
+# to an email address email@domain.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = '3211234567'
+type = 'Email'
+value = 'email@domain.com'
+
+try:
+    # Configure the delivery service type used as the destination for received messages.
+    api_response = api_instance.post_messages_receive(fonenumber, type, value=value, url_method=url_method, url_username=url_username, url_password=url_password)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_receive: %s\n" % e)
 ```
 
 > Example Response
@@ -251,11 +468,77 @@ Callback URLs use the `POST` method and use token replacements to place callback
 # JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 # when a message is received.
 $ curl --request POST
---url 'https://api.fonestorm.com/v2/message/receive_notify'
+--url 'https://api.fonestorm.com/v2/messages/receive_notify'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
 --data '{"to": "3211234567", "method": "JSON", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9"}'
+```
+
+```javascript
+// Configure fonenumber 3211234567 to receive a callback with
+// JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
+// when a message is received.
+var FracTelApi211 = require('frac_tel_api_211');
+var apiInstance = new FracTelApi211.MessagesApi();
+var fonenumber = "3211234567";
+var method = "JSON";
+var url = "https://hookb.in/vDkMOVB9";
+var opts = {};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postMessagesReceiveNotify(fonenumber, method, url, opts, callback);
+```
+
+```php
+<?php
+// Configure fonenumber 3211234567 to receive a callback with
+// JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
+// when a message is received.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\MessagesApi();
+$fonenumber = "3211234567";
+$method = "JSON";
+$url = "https://hookb.in/vDkMOVB9";
+
+try {
+    $result = $api_instance->postMessagesReceiveNotify($fonenumber, $method, $url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->postMessagesReceiveNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+```python
+# Configure fonenumber 3211234567 to receive a callback with
+# JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
+# when a message is received.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MessagesApi()
+fonenumber = '3211234567'
+method = 'JSON'
+url = 'https://hookb.in/vDkMOVB9'
+
+try:
+    # Configure the callback URL to notify when a message is received.
+    api_response = api_instance.post_messages_receive_notify(fonenumber, method, url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MessagesApi->post_messages_receive_notify: %s\n" % e)
 ```
 
 > Example Response
