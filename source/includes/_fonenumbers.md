@@ -1,6 +1,6 @@
-# Fonenumbers
+# FoneNumbers
 
-## List All Fonenumbers
+## List All FoneNumbers
 
 > Example Request
 
@@ -100,7 +100,7 @@ except ApiException as e:
 }
 ```
 
-Get all active Fonenumbers listed under the account.
+Get all active FoneNumbers listed under the account.
 
 ### HTTP Request
 
@@ -123,7 +123,7 @@ The default `filter` value is `fonenumbers`. For a more detailed response you ma
 - `fonenumbers` returns an array of fonenumber strings.
 - `all` returns an array of fonenumber objects.
 
-## Order New Fonenumber
+## Order New FoneNumber
 
 > Example Request
 
@@ -206,7 +206,7 @@ except ApiException as e:
 }
 ```
 
-Order a new Fonenumber for the account.
+Order a new FoneNumber for the account.
 
 ### HTTP Request
 
@@ -221,10 +221,10 @@ Parameter | Type | Default | Description
 area_code | string |  | A valid 3-digit Area Code.
 
 <aside class="notice">
-Adding a Fonenumber to your account may result in additional charges and fees.
+Adding a FoneNumber to your account may result in additional charges and fees.
 </aside>
 
-## Get Fonenumber Details
+## Get FoneNumber Details
 
 > Example Request
 
@@ -322,7 +322,7 @@ except ApiException as e:
 }
 ```
 
-Get information for a single Fonenumber listed under the account.
+Get information for a single FoneNumber listed under the account.
 
 ### HTTP Request
 
@@ -334,9 +334,9 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | A Fonenumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 
-## Update Fonenumber
+## Update FoneNumber
 
 > Example Request
 
@@ -424,7 +424,7 @@ except ApiException as e:
 }
 ```
 
-Configure the service type for account Fonenumber.
+Configure the service type for account FoneNumber.
 
 ### HTTP Request
 
@@ -436,13 +436,13 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | A Fonenumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | A Fonenumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL` or `Forward`.
 value | string |  | Message routing type value.
 url_method<br/>_optional_ | string |  | URL method. Allowed values are `GET`, `POST`, or `JSON`. See Notes for additional information.
@@ -453,13 +453,13 @@ url_password<br/>_optional_ | string |  | URL password for HTTP **Basic** authen
 
 #### `url_method`
 
-When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the Fonenumber. One of three available methods must be specified for the execution.
+When `type` is `URL` then `url_method` is required. The URL `value` is expected to be a valid HTTP or HTTPS URL that will accept data when a message is sent to the FoneNumber. One of three available methods must be specified for the execution.
 
 - `GET` returns data through query string parameters on a `GET` to the given URL.
 - `POST` returns data as _(application/x-www-form-urlencoded)_ in the body of a `POST` to the given URL.
 - `JSON` returns data as _(application/json)_ in the body of a `POST` to the given URL.
 
-## Delete Fonenumber
+## Delete FoneNumber
 
 > Example Request
 
@@ -535,7 +535,7 @@ except ApiException as e:
 }
 ```
 
-Remove Fonenumber from account.
+Remove FoneNumber from account.
 
 ### HTTP Request
 
@@ -547,4 +547,4 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | A Fonenumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.

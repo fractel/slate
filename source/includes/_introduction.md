@@ -18,9 +18,9 @@ All URLs referenced in the documentation have the following base:
 
 `https://api.fonestorm.com/v2`
 
-## Fonenumbers
+## FoneNumbers
 
-A Fonenumber&trade; is an all-purpose communication service routing handle provided by FracTEL. A fonenumber is an actual telephone number and it can be called or messaged from any landline or mobile telephone. It can be configured to route voice calls, faxes and SMS/MMS messages to another telephone, however a fonenumber is capable of much more -- and this power is exposed  through the FoneStorm API platform.
+A FoneNumber&trade; is an all-purpose communication service routing handle provided by FracTEL. A fonenumber is an actual telephone number and it can be called or messaged from any landline or mobile telephone. It can be configured to route voice calls, faxes and SMS/MMS messages to another telephone, however a fonenumber is capable of much more -- and this power is exposed  through the FoneStorm API platform.
 
 ## Dates and Times
 
