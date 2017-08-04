@@ -83,7 +83,7 @@ except ApiException as e:
 }
 ```
 
-Fonestorm uses an API key to allow access to the API. Fonestorm expects for the API key (also called a "token") to be included in all API requests to the server in a header that looks like the following:
+FoneStorm uses an API key to allow access to the API. FoneStorm expects for the API key (also called a "token") to be included in all API requests to the server in a header that looks like the following:
 
 `token: key`
 
