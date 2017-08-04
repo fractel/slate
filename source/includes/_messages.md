@@ -1,6 +1,6 @@
 # Messages
 
-## Send Message
+## Send
 
 > Example Request
 
@@ -12,7 +12,7 @@
 # containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 # with a callback url https://hookb.in/vDkMOVB9
 $ curl --request POST
---url 'https://api.fractel.net/v2/message/send'
+--url 'https://api.fonestorm.com/v2/message/send'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -110,7 +110,7 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS",
   "uid": "574330d1cdd7e1566b61b771ac72295f"
 }
@@ -203,7 +203,7 @@ Sending messages may result in additional charges and fees to your account.
 # POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 # when a message is sent.
 curl --request POST
---url 'https://api.fractel.net/v2/message/send_notify'
+--url 'https://api.fonestorm.com/v2/message/send_notify'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -280,7 +280,7 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -297,7 +297,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-from | string |  | Your fonenumber.
+from | string |  | A Fonenumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 
@@ -334,7 +334,7 @@ Callback URLs using the `GET` method use token replacements to place callback da
 # Deliver all messages received by FracTEL phone number 3211234567
 # to an email address email@domain.
 $ curl --request POST
---url 'https://api.fractel.net/v2/message/receive'
+--url 'https://api.fonestorm.com/v2/message/receive'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -409,7 +409,7 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -426,7 +426,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your fonenumber.
+to | string |  | A Fonenumber associated with the account.
 type | string | | Message service routing type. Allowed values are `Device`, `Email`, `URL`, `Forward`, or `None`. See **Notes** for additional information.
 value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_ or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
 
@@ -468,7 +468,7 @@ Callback URLs use the `POST` method and use token replacements to place callback
 # JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 # when a message is received.
 $ curl --request POST
---url 'https://api.fractel.net/v2/message/receive_notify'
+--url 'https://api.fonestorm.com/v2/message/receive_notify'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -545,7 +545,7 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
@@ -562,7 +562,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | Your fonenumber.
+to | string |  | A Fonenumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
 

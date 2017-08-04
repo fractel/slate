@@ -5,7 +5,7 @@
 ```shell
 # Obtain an authentication token that is valid for two hours.
 $ curl --request POST
---url 'https://api.fractel.net/v2/auth'
+--url 'https://api.fonestorm.com/v2/auth'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --data '{"username": "xxxxxxxxxx", "password": "xxxxxxxxxx", "expires": 7200}'
@@ -76,7 +76,7 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "REGISTERED",
   "token": "1825a1831d69218d474d6829501ac644",
   "expires": "2017-07-13T21:19:30.000Z"

@@ -5,9 +5,9 @@
 > Example Request
 
 ```shell
-# Get all DIDs under account.
+# Get all fonenumbers under account.
 $ curl --request GET
---url 'https://api.fractel.net/v2/fonenumbers'
+--url 'https://api.fonestorm.com/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -69,42 +69,30 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
-  "Fonenumbers": [
+  "status_code": 200,
+  "fonenumbers": [
     {
-      "Number": [
-        "3094399908"
-      ],
-      "RegionBlock": [
-        "na"
-      ],
-      "CNAMLookup": [
-        "yes"
-      ],
-      "AccountCode": [
-        "2005551524"
-      ],
-      "ServiceOption": [
-        "475744919148"
-      ],
-      "ServiceType": [
-        "Device"
-      ],
-      "T38": [
-        "yes"
-      ],
-      "SMS": [
-        "no"
-      ],
-      "PortedNumber": [
-        "no"
-      ],
-      "ActivateDate": [
-        "2017-01-06 10:09:51"
-      ],
-      "RewriteTo": [
-        ""
-      ]
+      "fonenumber": "8889807630",
+      "service_type": "TimeOfDayRoute",
+      "receive": {
+        "type": "URL",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "https://hookb.in/Ew7WzAb2",
+        "url_method": "JSON"
+      },
+      "receive_notify": {
+        "url": "https://hookb.in/Ew7WzAb2",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://hookb.in/Ew7WzAb2",
+        "method": "JSON"
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no",
+      "is_active": "yes"
     }
   ],
   "total": 1,
@@ -120,14 +108,29 @@ Method | Route
 --------- | -------
 **GET** | `/fonenumbers`
 
+### Query Parameters
+
+Parameter | Type | Default | Description
+--------- | ------- | ----------- | -----------
+filter | string | fonenumbers | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See Notes for additional information.
+
+### Notes
+
+#### `filter`
+
+The default `filter` value is `fonenumbers`. For a more detailed response you may use `all`.
+
+- `fonenumbers` returns an array of fonenumber strings.
+- `all` returns an array of fonenumber objects.
+
 ## Order New Fonenumber
 
 > Example Request
 
 ```shell
-# Order quick DID with a `321` area code.
+# Order quick fonenumber with a `321` area code.
 $ curl --request POST
---url 'https://api.fractel.net/v2/fonenumbers'
+--url 'https://api.fonestorm.com/v2/fonenumbers'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -191,35 +194,15 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
-  "Fonenumber": {
-    "RateCenter": [
-      "REEDYCREEK"
-    ],
-    "State": [
-      "FL"
-    ],
-    "MMS": [
-      "yes"
-    ],
-    "Tier": [
-      "B"
-    ],
-    "Result": [
-      "SUCCESS"
-    ],
-    "Number": [
-      "3212182662"
-    ],
-    "T38": [
-      "yes"
-    ],
-    "SMS": [
-      "yes"
-    ]
+  "status_code": 200,
+  "fonenumber": {
+    "fonenumber": "3212335701",
+    "sms_enabled": "yes",
+    "mms_enabled": "yes",
+    "state": "FL",
+    "rate_center": "SANFORD"
   },
-  "result": "SUCCESS",
-  "total": 1
+  "result": "SUCCESS"
 }
 ```
 
@@ -246,9 +229,9 @@ Adding a Fonenumber to your account may result in additional charges and fees.
 > Example Request
 
 ```shell
-# Get details for DID `3212182662`
+# Get details for fonenumber `3212182662`
 $ curl --request GET
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -311,43 +294,30 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
-  "Fonenumber": {
-    "T38": [
-      "yes"
-    ],
-    "ServiceType": [
-      "TrunkGroup"
-    ],
-    "SMS": [
-      "yes"
-    ],
-    "PortedNumber": [
-      "no"
-    ],
-    "ActivateDate": [
-      "2017-07-27 04:33:32"
-    ],
-    "RewriteTo": [
-      ""
-    ],
-    "AccountCode": [
-      "2005551524"
-    ],
-    "ServiceOption": [
-      "2005551524"
-    ],
-    "Number": [
-      "3212182662"
-    ],
-    "RegionBlock": [
-      "na"
-    ],
-    "CNAMLookup": [
-      "yes"
-    ]
+  "status_code": 200,
+  "fonenumber": {
+    "fonenumber": "8889807630",
+    "service_type": "TimeOfDayRoute",
+    "receive": {
+      "type": "URL",
+      "email": "",
+      "device": "",
+      "forward": "",
+      "url": "https://hookb.in/Ew7WzAb2",
+      "url_method": "JSON"
+    },
+    "receive_notify": {
+      "url": "https://hookb.in/Ew7WzAb2",
+      "method": "JSON"
+    },
+    "send_notify": {
+      "url": "https://hookb.in/Ew7WzAb2",
+      "method": "JSON"
+    },
+    "sms_enabled": "no",
+    "mms_enabled": "no",
+    "is_active": "yes"
   },
-  "total": 1,
   "result": "SUCCESS"
 }
 ```
@@ -371,10 +341,10 @@ fonenumber | string |  | A Fonenumber associated with the account.
 > Example Request
 
 ```shell
-# Set DID service type for DID `3212182662`
+# Set fonenumber service type for `3212182662`
 # to receive messages to email address `support@domain.com`
 $ curl --request PUT
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -449,12 +419,12 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
+  "status_code": 200,
   "result": "SUCCESS"
 }
 ```
 
-Configure the service type for account DID.
+Configure the service type for account Fonenumber.
 
 ### HTTP Request
 
@@ -466,13 +436,13 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.
 
 ### Body Parameters
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.
 type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL` or `Forward`.
 value | string |  | Message routing type value.
 url_method<br/>_optional_ | string |  | URL method. Allowed values are `GET`, `POST`, or `JSON`. See Notes for additional information.
@@ -494,9 +464,9 @@ When `type` is `URL` then `url_method` is required. The URL `value` is expected 
 > Example Request
 
 ```shell
-# Cancel DID `3212182662` and remove from account.
+# Cancel fonenumber `3212182662` and remove from account.
 $ curl --request DELETE
---url 'https://api.fractel.net/v2/fonenumbers/3212182662'
+--url 'https://api.fonestorm.com/v2/fonenumbers/3212182662'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
@@ -559,17 +529,9 @@ except ApiException as e:
 
 ```json
 {
-  "statusCode": 200,
-  "fonenumber": {
-    "Result": [
-      "CANCELOK"
-    ],
-    "Number": [
-      "3212182662"
-    ]
-  },
-  "result": "SUCCESS",
-  "total": 1
+  "status_code": 200,
+  "fonenumber": "3212335701",
+  "result": "SUCCESS"
 }
 ```
 
@@ -585,4 +547,4 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-fonenumber | string |  | Your Fonenumber.
+fonenumber | string |  | A Fonenumber associated with the account.
