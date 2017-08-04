@@ -14,12 +14,10 @@ $ curl --request GET
 ```
 
 ```javascript
-var FracTelApi210 = require('frac_tel_api_211');
-
+var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-
 var opts = {
-  'filter': "filter_example" // String | Filters for the response.
+  'filter': "all"
 };
 
 var callback = function(error, data, response) {
@@ -37,7 +35,7 @@ apiInstance.getFonenumbers(opts, callback);
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
-$filter = "filter_example"; // string | Filters for the response.
+$filter = "all";
 
 try {
     $result = $api_instance->getFonenumbers($filter);
@@ -57,7 +55,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-filter = 'filter_example' # str | Filters for the response. (optional)
+filter = 'all'
 
 try:
     # Get all active fonenumbers listed under the account.
@@ -137,12 +135,10 @@ $ curl --request POST
 ```
 
 ```javascript
-var FracTelApi210 = require('frac_tel_api_211');
-
+// Order fonenumber with a `321` area code.
+var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-
-var areaCode = "areaCode_example"; // String | A valid 3-digit Area Code.
-
+var areaCode = "321";
 
 var callback = function(error, data, response) {
   if (error) {
@@ -156,10 +152,11 @@ apiInstance.postFonenumbers(areaCode, callback);
 
 ```php
 <?php
+// Order fonenumber with a `321` area code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
-$area_code = "area_code_example"; // string | A valid 3-digit Area Code.
+$area_code = "321";
 
 try {
     $result = $api_instance->postFonenumbers($area_code);
@@ -171,6 +168,7 @@ try {
 ```
 
 ```python
+# Order fonenumber with a `321` area code.
 from __future__ import print_function
 import time
 import swagger_client
@@ -179,7 +177,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-area_code = 'area_code_example' # str | A valid 3-digit Area Code.
+area_code = '321'
 
 try:
     # Order quick fonenumber for the account.
@@ -257,12 +255,10 @@ $ curl --request GET
 ```
 
 ```javascript
-var FracTelApi210 = require('frac_tel_api_211');
-
+// Get details for fonenumber `3212182662`
+var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-
-var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
-
+var fonenumber = "3212182662";
 
 var callback = function(error, data, response) {
   if (error) {
@@ -276,10 +272,11 @@ apiInstance.getFonenumbersFonenumber(fonenumber, callback);
 
 ```php
 <?php
+// Get details for fonenumber `3212182662`
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
-$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
+$fonenumber = "3212182662";
 
 try {
     $result = $api_instance->getFonenumbersFonenumber($fonenumber);
@@ -291,6 +288,7 @@ try {
 ```
 
 ```python
+# Get details for fonenumber `3212182662`
 from __future__ import print_function
 import time
 import swagger_client
@@ -299,7 +297,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
+fonenumber = '3212182662' # str | Your FracTEL fonenumber.
 
 try:
     # Get a single fonenumber listed under the account.
@@ -384,19 +382,14 @@ $ curl --request PUT
 ```
 
 ```javascript
-var FracTelApi210 = require('frac_tel_api_211');
-
+// Set service for fonenumber `3212182662`
+// to receive messages to email address `support@domain.com`
+var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-
-var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
-
-var type = "type_example"; // String | Message routing type.
-
+var fonenumber = "3212182662"; // String | Your FracTEL fonenumber.
+var type = "Email";
 var opts = {
-  'value': "value_example", // String | Message routing type value.
-  'urlMethod': "urlMethod_example", // String | URL method.
-  'urlUsername': "urlUsername_example", // String | URL auth username.
-  'urlPassword': "urlPassword_example" // String | URL auth password.
+  'value': "support@domain.com",
 };
 
 var callback = function(error, data, response) {
@@ -411,18 +404,17 @@ apiInstance.putFonenumbersFonenumber(fonenumber, type, opts, callback);
 
 ```php
 <?php
+// Set service for fonenumber `3212182662`
+// to receive messages to email address `support@domain.com`
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
-$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
-$type = "type_example"; // string | Message routing type.
-$value = "value_example"; // string | Message routing type value.
-$url_method = "url_method_example"; // string | URL method.
-$url_username = "url_username_example"; // string | URL auth username.
-$url_password = "url_password_example"; // string | URL auth password.
+$fonenumber = "3212182662";
+$type = "Email";
+$value = "support@domain.com";
 
 try {
-    $result = $api_instance->putFonenumbersFonenumber($fonenumber, $type, $value, $url_method, $url_username, $url_password);
+    $result = $api_instance->putFonenumbersFonenumber($fonenumber, $type, $value);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FonenumbersApi->putFonenumbersFonenumber: ', $e->getMessage(), PHP_EOL;
@@ -431,6 +423,8 @@ try {
 ```
 
 ```python
+# Set service for fonenumber `3212182662`
+# to receive messages to email address `support@domain.com`
 from __future__ import print_function
 import time
 import swagger_client
@@ -439,12 +433,9 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
-type = 'type_example' # str | Message routing type.
-value = 'value_example' # str | Message routing type value. (optional)
-url_method = 'url_method_example' # str | URL method. (optional)
-url_username = 'url_username_example' # str | URL auth username. (optional)
-url_password = 'url_password_example' # str | URL auth password. (optional)
+fonenumber = '3212182662'
+type = 'Email'
+value = 'support@domain.com'
 
 try:
     # Configure the service type for an account fonenumber.
@@ -512,12 +503,10 @@ $ curl --request DELETE
 ```
 
 ```javascript
-var FracTelApi210 = require('frac_tel_api_211');
-
+// Cancel fonenumber `3212182662` and remove from account.
+var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-
-var fonenumber = "fonenumber_example"; // String | Your FracTEL fonenumber.
-
+var fonenumber = "3212182662";
 
 var callback = function(error, data, response) {
   if (error) {
@@ -531,10 +520,11 @@ apiInstance.deleteFonenumbersFonenumber(fonenumber, callback);
 
 ```php
 <?php
+// Cancel fonenumber `3212182662` and remove from account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
-$fonenumber = "fonenumber_example"; // string | Your FracTEL fonenumber.
+$fonenumber = "3212182662";
 
 try {
     $result = $api_instance->deleteFonenumbersFonenumber($fonenumber);
@@ -546,6 +536,7 @@ try {
 ```
 
 ```python
+# Cancel fonenumber `3212182662` and remove from account.
 from __future__ import print_function
 import time
 import swagger_client
@@ -554,7 +545,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-fonenumber = 'fonenumber_example' # str | Your FracTEL fonenumber.
+fonenumber = '3212182662'
 
 try:
     # Remove fonenumber from the account.
