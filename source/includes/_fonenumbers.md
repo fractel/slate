@@ -97,8 +97,7 @@ $ curl --request POST
     "state": "FL",
     "rate_center": "SANFORD"
   },
-  "result": "SUCCESS",
-  "total": 1
+  "result": "SUCCESS"
 }
 ```
 
