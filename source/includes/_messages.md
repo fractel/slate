@@ -211,7 +211,7 @@ curl --request POST
 ```
 
 ```javascript
-// Configure fonenumber 3211234567 to receive a callback with
+// Configure FoneNumber 3211234567 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
 var FracTelApi211 = require('frac_tel_api_211');
@@ -233,7 +233,7 @@ apiInstance.postMessagesSendNotify(fonenumber, method, url, opts, callback);
 
 ```php
 <?php
-// Configure fonenumber 3211234567 to receive a callback with
+// Configure FoneNumber 3211234567 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -253,7 +253,7 @@ try {
 ```
 
 ```python
-# Configure fonenumber 3211234567 to receive a callback with
+# Configure FoneNumber 3211234567 to receive a callback with
 # POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 # when a message is sent.
 from __future__ import print_function
@@ -305,7 +305,7 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 #### `url`
 
-This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent from the fonenumber specified in `from`.
+This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent from the FoneNumber specified in `from`.
 
 #### `method`
 
@@ -342,7 +342,7 @@ $ curl --request POST
 ```
 
 ```javascript
-// Deliver all messages received by fonenumber 3211234567
+// Deliver all messages received by FoneNumber 3211234567
 // to an email address email@domain.
 var FracTelApi211 = require('frac_tel_api_211');
 var apiInstance = new FracTelApi211.MessagesApi();
@@ -364,7 +364,7 @@ apiInstance.postMessagesReceive(fonenumber, type, opts, callback);
 
 ```php
 <?php
-// Deliver all messages received by fonenumber 3211234567
+// Deliver all messages received by FoneNumber 3211234567
 // to an email address email@domain.
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -383,7 +383,7 @@ try {
 ```
 
 ```python
-# Deliver all messages received by fonenumber 3211234567
+# Deliver all messages received by FoneNumber 3211234567
 # to an email address email@domain.
 from __future__ import print_function
 import time
@@ -476,7 +476,7 @@ $ curl --request POST
 ```
 
 ```javascript
-// Configure fonenumber 3211234567 to receive a callback with
+// Configure FoneNumber 3211234567 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
 var FracTelApi211 = require('frac_tel_api_211');
@@ -498,7 +498,7 @@ apiInstance.postMessagesReceiveNotify(fonenumber, method, url, opts, callback);
 
 ```php
 <?php
-// Configure fonenumber 3211234567 to receive a callback with
+// Configure FoneNumber 3211234567 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -518,7 +518,7 @@ try {
 ```
 
 ```python
-# Configure fonenumber 3211234567 to receive a callback with
+# Configure FoneNumber 3211234567 to receive a callback with
 # JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 # when a message is received.
 from __future__ import print_function
@@ -550,7 +550,7 @@ except ApiException as e:
 }
 ```
 
-Configure the callback URL to notify when a message is received. Each fonenumber can be configured to use its own callback URL for handling receive notifications.
+Configure the callback URL to notify when a message is received. Each FoneNumber can be configured to use its own callback URL for handling receive notifications.
 
 ### HTTP Request
 
