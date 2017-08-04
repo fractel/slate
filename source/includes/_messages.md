@@ -2,9 +2,6 @@
 
 ## Send
 
-includes:
-  - introduction
-
 > Example Request
 
 ```shell
