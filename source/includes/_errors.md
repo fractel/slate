@@ -1,10 +1,10 @@
 # Errors
 
-Fonestorm uses conventional HTTP response codes to indicate the success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided and codes in the 5xx range indicate an error with our servers.
+FoneStorm uses conventional HTTP response codes to indicate the success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided and codes in the 5xx range indicate an error with our servers.
 
 ## Client Errors
 
-Fonestorm API uses the following HTTP status codes for client errors:
+FoneStorm API uses the following HTTP status codes for client errors:
 
 Code | Error | Description
 ---------- | ------- | -------
@@ -34,7 +34,7 @@ Code | Error | Description
 
 ## Server Errors
 
-Fonestorm API uses the following HTTP status codes for server errors:
+FoneStorm API uses the following HTTP status codes for server errors:
 
 Code | Error | Description
 ---------- | ------- | -------
