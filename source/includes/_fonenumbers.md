@@ -7,7 +7,7 @@
 ```shell
 # Get all FoneNumbers under account.
 $ curl --request GET
---url 'https://api.fonestorm.com/v2/fonenumbers'
+--url 'https://api.fonestorm.com/v2/fonenumbers?filter=all'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
