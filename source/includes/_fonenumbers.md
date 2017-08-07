@@ -125,7 +125,7 @@ total | integer | Total number of account FoneNumbers listed.
 fonenumbers | array | Array of account FoneNumbers.
 fonenumber | string | FoneNumber.
 sms_options | object | SMS related properties.
-receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
+receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
 receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 sms_enabled | string | FoneNumber is enabled for SMS service.
@@ -375,7 +375,7 @@ status_code | integer | HTTP status code.
 result | string | Text result of the request.
 fonenumber | string | FoneNumber.
 sms_options | object | SMS related properties.
-receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
+receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
 receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 sms_enabled | string | FoneNumber is enabled for SMS service.
