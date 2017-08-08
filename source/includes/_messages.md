@@ -26,8 +26,8 @@ $ curl --request POST
 // to a recipent 3215552222
 // containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 // with a callback url https://hookb.in/vDkMOVB9
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
+var FracTelApi212 = require('frac_tel_api_212');
+var apiInstance = new FracTelApi212.MessagesApi();
 var to = "3215552222";
 var fonenumber = "3215551111";
 var message = "Hello World";
@@ -144,7 +144,7 @@ result | string | Text result of the request.
 uid | string | Unique identifier of the sent message.
 
 <aside class="notice">
-Networks impose a limit of one message per second per sending (`from`) number. Calls that exceed this rate limit will receive an error code of `400 - Rate Limit Exceeded`.
+Networks impose a limit of one message per second per sending (<code>from</code>) number. Calls that exceed this rate limit will receive an error code of <code>400 - Rate Limit Exceeded</code>.
 </aside>
 
 ### Notes
@@ -178,11 +178,9 @@ Extension | File Type | - | Extension | File Type | - | Extension | File Type | 
 .3ga | audio/amr | | .gif | image/gif | | .wap | text/vnd.wap.wml | | .wmv | video/x-ms-wmv
 .amr | audio/amr | | .jpeg | image/jpeg | | .xml | text/xml
 
-Up to ten URLs can be accepted per message.
-
 #### `confirmation_url`
 
-Message sending confirmation callback URLs receive JSON data via a <code>POST</code> request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}</code>
+Message sending confirmation callback URLs receive JSON data via a `POST` request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}`
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
@@ -222,8 +220,8 @@ curl --request POST
 // Configure FoneNumber 3215551111 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
+var FracTelApi212 = require('frac_tel_api_212');
+var apiInstance = new FracTelApi212.MessagesApi();
 var fonenumber = "3215551111";
 var method = "POST";
 var url = "https://hookb.in/vDkMOVB9";
@@ -339,7 +337,7 @@ from | string | | FoneNumber of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`
 
 ## Receive
 
@@ -359,8 +357,8 @@ $ curl --request POST
 ```javascript
 // Deliver all messages received by FoneNumber 3215551111
 // to an email address email@domain.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
+var FracTelApi212 = require('frac_tel_api_212');
+var apiInstance = new FracTelApi212.MessagesApi();
 var fonenumber = "3215551111";
 var type = "Email";
 var opts = {
@@ -443,7 +441,7 @@ Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 fonenumber | string |  | A FoneNumber associated with the account.
 type | string | | Message service routing type. Allowed values are `Device`, `Email`, `URL`, `Forward`, or `None`. See **Notes** for additional information.
-value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_ or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
+value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_, or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
 
 ### Response Properties
 
@@ -479,7 +477,7 @@ from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs use the `POST` method and use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs use the `POST` method and use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`
 
 ## Receive Notify
 
@@ -501,8 +499,8 @@ $ curl --request POST
 // Configure FoneNumber 3215551111 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
+var FracTelApi212 = require('frac_tel_api_212');
+var apiInstance = new FracTelApi212.MessagesApi();
 var fonenumber = "3215551111";
 var method = "JSON";
 var url = "https://hookb.in/vDkMOVB9";
@@ -618,4 +616,4 @@ from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`

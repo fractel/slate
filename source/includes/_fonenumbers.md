@@ -14,7 +14,7 @@ $ curl --request GET
 ```
 
 ```javascript
-var FracTelApi211 = require('frac_tel_api_211');
+var FracTelApi212 = require('frac_tel_api_212');
 var apiInstance = new FracTelApi210.FonenumbersApi();
 var opts = {
   'filter': "all"
@@ -83,7 +83,7 @@ except ApiException as e:
           "url_method": "JSON"
         },
         "receive_notify": {
-          "url": "https://hookbin.com/bin/KNRzy7P3",
+          "url": "https://hookb.in/KNRzy7P3",
           "method": "JSON"
         },
         "send_notify": {
@@ -101,7 +101,7 @@ except ApiException as e:
 }
 ```
 
-Get all active FoneNumbers listed under the account.
+Get all the active FoneNumbers listed under the account.
 
 ### HTTP Request
 
@@ -113,7 +113,7 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-filter | string | fonenumbers | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See Notes for additional information.
+filter | string | fonenumbers | Filter the response attributes. Allowed values are `fonenumbers` or `all`. See **Notes** for additional information.
 
 ### Response Properties
 
@@ -128,9 +128,9 @@ sms_options | object | SMS related properties.
 receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
 receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-sms_enabled | string | FoneNumber is enabled for SMS service.
-mms_enabled | string | FoneNumber is enabled for MMS service.
-is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancellation</li><li>`cancel` - cancelled</li></ul>.
+sms_enabled | string | SMS service is enabled for FoneNumber.
+mms_enabled | string | MMS service is enabled for FoneNumber.
+is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancelation</li><li>`cancel` - canceled</li></ul>.
 
 ### Notes
 
@@ -146,7 +146,7 @@ The default `filter` value is `fonenumbers`. For a more detailed response you ma
 > Example Request
 
 ```shell
-# Order quick FoneNumber with a `321` area code.
+# Order quick FoneNumber with a '321' area code.
 $ curl --request POST
 --url 'https://api.fonestorm.com/v2/fonenumbers'
 --header 'Content-Type: application/json'
@@ -156,8 +156,8 @@ $ curl --request POST
 ```
 
 ```javascript
-// Order FoneNumber with a `321` area code.
-var FracTelApi211 = require('frac_tel_api_211');
+// Order FoneNumber with a '321' area code.
+var FracTelApi212 = require('frac_tel_api_212');
 var apiInstance = new FracTelApi210.FonenumbersApi();
 var areaCode = "321";
 
@@ -173,7 +173,7 @@ apiInstance.postFonenumbers(areaCode, callback);
 
 ```php
 <?php
-// Order FoneNumber with a `321` area code.
+// Order FoneNumber with a '321' area code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
@@ -189,7 +189,7 @@ try {
 ```
 
 ```python
-# Order FoneNumber with a `321` area code.
+# Order FoneNumber with a '321' area code.
 from __future__ import print_function
 import time
 import swagger_client
@@ -249,8 +249,8 @@ Property | Type | Description
 status_code | integer | HTTP status code.
 result | string | Text result of the request.
 fonenumber | string | FoneNumber.
-sms_enabled | string | FoneNumber is enabled for SMS service.
-mms_enabled | string | FoneNumber is enabled for MMS service.
+sms_enabled | string | SMS service is enabled for FoneNumber.
+mms_enabled | string | MMS service is enabled for FoneNumber.
 state | string | State FoneNumber is registered.
 rate_center | string | Rate center for the FoneNumber.
 
@@ -259,7 +259,7 @@ rate_center | string | Rate center for the FoneNumber.
 > Example Request
 
 ```shell
-# Get details for FoneNumber `3215551111`
+# Get details for FoneNumber '3215551111'
 $ curl --request GET
 --url 'https://api.fonestorm.com/v2/fonenumbers/3215551111'
 --header 'Content-Type: application/json'
@@ -268,8 +268,8 @@ $ curl --request GET
 ```
 
 ```javascript
-// Get details for FoneNumber `3215551111`
-var FracTelApi211 = require('frac_tel_api_211');
+// Get details for FoneNumber '3215551111'
+var FracTelApi212 = require('frac_tel_api_212');
 var apiInstance = new FracTelApi210.FonenumbersApi();
 var fonenumber = "3215551111";
 
@@ -285,7 +285,7 @@ apiInstance.getFonenumbersFonenumber(fonenumber, callback);
 
 ```php
 <?php
-// Get details for FoneNumber `3215551111`
+// Get details for FoneNumber '3215551111'
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
@@ -301,7 +301,7 @@ try {
 ```
 
 ```python
-# Get details for FoneNumber `3215551111`
+# Get details for FoneNumber '3215551111'
 from __future__ import print_function
 import time
 import swagger_client
@@ -310,7 +310,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.FonenumbersApi()
-fonenumber = '3215551111' # str | Your FracTEL fonenumber.
+fonenumber = '3215551111'
 
 try:
     # Get a single FoneNumber listed under the account.
@@ -337,7 +337,7 @@ except ApiException as e:
         "url_method": "JSON"
       },
       "receive_notify": {
-        "url": "https://hookbin.com/bin/KNRzy7P3",
+        "url": "https://hookb.in/KNRzy7P3",
         "method": "JSON"
       },
       "send_notify": {
@@ -378,17 +378,17 @@ sms_options | object | SMS related properties.
 receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
 receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
 send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-sms_enabled | string | FoneNumber is enabled for SMS service.
-mms_enabled | string | FoneNumber is enabled for MMS service.
-is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancellation</li><li>`cancel` - cancelled</li></ul>.
+sms_enabled | string | SMS service is enabled for FoneNumber.
+mms_enabled | string | MMS service is enabled for FoneNumber.
+is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancelation</li><li>`cancel` - canceled</li></ul>.
 
 ## Update FoneNumber
 
 > Example Request
 
 ```shell
-# Set FoneNumber service type for `3215551111`
-# to receive messages to email address `support@domain.com`
+# Set FoneNumber service type for '3215551111'
+# to receive messages to email address 'support@domain.com'
 $ curl --request PUT
 --url 'https://api.fonestorm.com/v2/fonenumbers/3215551111'
 --header 'Content-Type: application/json'
@@ -398,11 +398,11 @@ $ curl --request PUT
 ```
 
 ```javascript
-// Set service for FoneNumber `3215551111`
-// to receive messages to email address `support@domain.com`
-var FracTelApi211 = require('frac_tel_api_211');
+// Set service for FoneNumber '3215551111'
+// to receive messages to email address 'support@domain.com'
+var FracTelApi212 = require('frac_tel_api_212');
 var apiInstance = new FracTelApi210.FonenumbersApi();
-var fonenumber = "3215551111"; // String | Your FracTEL FoneNumber.
+var fonenumber = "3215551111";
 var type = "Email";
 var opts = {
   'value': "support@domain.com",
@@ -420,8 +420,8 @@ apiInstance.putFonenumbersFonenumber(fonenumber, type, opts, callback);
 
 ```php
 <?php
-// Set service for FoneNumber `3215551111`
-// to receive messages to email address `support@domain.com`
+// Set service for FoneNumber '3215551111'
+// to receive messages to email address 'support@domain.com'
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
@@ -439,8 +439,8 @@ try {
 ```
 
 ```python
-# Set service for FoneNumber `3215551111`
-# to receive messages to email address `support@domain.com`
+# Set service for FoneNumber '3215551111'
+# to receive messages to email address 'support@domain.com'
 from __future__ import print_function
 import time
 import swagger_client
@@ -488,7 +488,7 @@ fonenumber | string |  | A FoneNumber associated with the account.
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL` or `Forward`.
+type | string |  | Message routing type. Allowed values are `None`, `Device`, `Email`, `URL`, or `Forward`.
 value | string |  | Message routing type value.
 url_method<br/>_optional_ | string |  | URL method. Allowed values are `GET`, `POST`, or `JSON`. See Notes for additional information.
 url_username<br/>_optional_ | string |  | URL username for HTTP **Basic** authentication scheme.
@@ -516,7 +516,7 @@ When `type` is `URL` then `url_method` is required. The URL `value` is expected 
 > Example Request
 
 ```shell
-# Cancel FoneNumber `3215551111` and remove from account.
+# Cancel FoneNumber '3215551111' and remove from account.
 $ curl --request DELETE
 --url 'https://api.fonestorm.com/v2/fonenumbers/3215551111'
 --header 'Content-Type: application/json'
@@ -525,8 +525,8 @@ $ curl --request DELETE
 ```
 
 ```javascript
-// Cancel FoneNumber `3215551111` and remove from account.
-var FracTelApi211 = require('frac_tel_api_211');
+// Cancel FoneNumber '3215551111' and remove from account.
+var FracTelApi212 = require('frac_tel_api_212');
 var apiInstance = new FracTelApi210.FonenumbersApi();
 var fonenumber = "3215551111";
 
@@ -542,7 +542,7 @@ apiInstance.deleteFonenumbersFonenumber(fonenumber, callback);
 
 ```php
 <?php
-// Cancel FoneNumber `3215551111` and remove from account.
+// Cancel FoneNumber '3215551111' and remove from account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\FonenumbersApi();
@@ -558,7 +558,7 @@ try {
 ```
 
 ```python
-# Cancel FoneNumber `3215551111` and remove from account.
+# Cancel FoneNumber '3215551111' and remove from account.
 from __future__ import print_function
 import time
 import swagger_client

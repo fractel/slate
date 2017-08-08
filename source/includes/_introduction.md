@@ -8,7 +8,7 @@ The FoneStorm API is organized around [REST](http://en.wikipedia.org/wiki/Repres
 
 ## Using FoneStorm
 
-You will need an active FracTEL account with API access enabled to use the FoneStorm API. Call us at (321) 499-1000 or email [sales@fonestorm.com](mailto:sales@fonestorm.com?subject=FracTEL%20API%20Access%20Request) to get set up.
+You will need an active FracTEL account with API access enabled to use the FoneStorm API. Call us at (321) 499-1000 or email [sales@fonestorm.com](mailto:sales@fonestorm.com?subject=FoneStorm%20API%20Access%20Request) to get set up.
 
 All operations are scoped to the FracTEL account being used to authenticate. Whenever this documentation makes reference to "the account" or "your account", it is referring to the account that was used to obtain the API key.
 
@@ -20,7 +20,7 @@ All URLs referenced in the documentation have the following base:
 
 ## FoneNumbers
 
-A FoneNumber&trade; is an all-purpose communication service routing handle provided by FracTEL. A FoneNumber is an actual telephone number and it can be called or messaged from any landline or mobile telephone. It can be configured to route voice calls, faxes and SMS/MMS messages to another telephone, however a FoneNumber is capable of much more -- and this power is exposed  through the FoneStorm API platform.
+A FoneNumber&trade; is an all-purpose communication service routing handle provided by FracTEL. A FoneNumber is an actual telephone number and it can be called or messaged from any landline or mobile telephone. It can be configured to route voice calls, faxes and SMS/MMS messages to another telephone. However, a FoneNumber is capable of much more -- and this power is exposed  through the FoneStorm API platform.
 
 ## Dates and Times
 
@@ -48,7 +48,7 @@ FoneStorm clients are available in a variety of languages and environments at th
 
 These clients are auto-generated with [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
-Code examples throughout this documentation, with the exception of cURL examples, is based on the use of these clients.
+Code examples throughout this documentation, with the exception of cURL examples, are based on the use of these clients.
 
 ## Terms and Conditions
 
