@@ -26,8 +26,8 @@ $ curl --request POST
 // to a recipent 3215552222
 // containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 // with a callback url https://hookb.in/vDkMOVB9
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi212.MessagesApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
 var to = "3215552222";
 var fonenumber = "3215551111";
 var message = "Hello World";
@@ -220,8 +220,8 @@ curl --request POST
 // Configure FoneNumber 3215551111 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi212.MessagesApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
 var fonenumber = "3215551111";
 var method = "POST";
 var url = "https://hookb.in/vDkMOVB9";
@@ -357,8 +357,8 @@ $ curl --request POST
 ```javascript
 // Deliver all messages received by FoneNumber 3215551111
 // to an email address email@domain.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi212.MessagesApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
 var fonenumber = "3215551111";
 var type = "Email";
 var opts = {
@@ -499,8 +499,8 @@ $ curl --request POST
 // Configure FoneNumber 3215551111 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi212.MessagesApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
 var fonenumber = "3215551111";
 var method = "JSON";
 var url = "https://hookb.in/vDkMOVB9";

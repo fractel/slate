@@ -14,8 +14,8 @@ $ curl --request GET
 ```
 
 ```javascript
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.FonenumbersApi();
 var opts = {
   'filter': "all"
 };
@@ -157,8 +157,8 @@ $ curl --request POST
 
 ```javascript
 // Order FoneNumber with a '321' area code.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.FonenumbersApi();
 var areaCode = "321";
 
 var callback = function(error, data, response) {
@@ -269,8 +269,8 @@ $ curl --request GET
 
 ```javascript
 // Get details for FoneNumber '3215551111'
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.FonenumbersApi();
 var fonenumber = "3215551111";
 
 var callback = function(error, data, response) {
@@ -400,8 +400,8 @@ $ curl --request PUT
 ```javascript
 // Set service for FoneNumber '3215551111'
 // to receive messages to email address 'support@domain.com'
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.FonenumbersApi();
 var fonenumber = "3215551111";
 var type = "Email";
 var opts = {
@@ -526,8 +526,8 @@ $ curl --request DELETE
 
 ```javascript
 // Cancel FoneNumber '3215551111' and remove from account.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi210.FonenumbersApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.FonenumbersApi();
 var fonenumber = "3215551111";
 
 var callback = function(error, data, response) {

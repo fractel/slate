@@ -13,8 +13,8 @@ $ curl --request POST
 
 ```javascript
 // Obtain an authentication token that is valid for two hours.
-var FracTelApi212 = require('frac_tel_api_212');
-var apiInstance = new FracTelApi212.AuthApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.AuthApi();
 var username = "xxxxxxxxxx";
 var password = "xxxxxxxxxx";
 var opts = {
