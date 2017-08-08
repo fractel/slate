@@ -1,5 +1,5 @@
 ---
-title: FoneStorm API 2.1.1
+title: FoneStorm API 2.1.2
 
 language_tabs:
   - shell: cURL
