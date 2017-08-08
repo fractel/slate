@@ -13,8 +13,8 @@ $ curl --request POST
 
 ```javascript
 // Obtain an authentication token that is valid for two hours.
-var FracTelApi210 = require('frac_tel_api_210');
-var apiInstance = new FracTelApi210.AuthApi();
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.AuthApi();
 var username = "xxxxxxxxxx";
 var password = "xxxxxxxxxx";
 var opts = {
@@ -107,6 +107,15 @@ username | string |  |FracTEL username.
 password | string | | FracTEL password.
 expires<br/>_optional_ | integer | 3600 | Token time to live in seconds. The maximum allowed time is 24 hours.
 
+### Response Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+status_code | integer | HTTP status code.
+result | string | Text result of the request.
+token | string | Generated token used for making additional requests.
+expires | datetime | UTC expiration time of token.
+
 <aside class="notice">
-API calls that use invalid or expired tokens will receive a response of `401 - Unauthorized`.
+API calls that use invalid or expired tokens will receive a response of <code>401 - Unauthorized</code>.
 </aside>

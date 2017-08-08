@@ -7,8 +7,8 @@
 ```shell
 # Send an MMS message "Hello World"
 # that does not require confirmation
-# from FracTEL phone number 3211234566
-# to a recipent 3211234567
+# from FoneNumber 3215551111
+# to a recipent 3215552222
 # containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 # with a callback url https://hookb.in/vDkMOVB9
 $ curl --request POST
@@ -16,20 +16,20 @@ $ curl --request POST
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
---data '{"to":"3211234567", "from": "3211234566", "message": "Hello%20World", "media_url": "https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png", "confirmation_url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9", "require_confirmation": false}'
+--data '{"to":"3215552222", "fonenumber": "3215551111", "message": "Hello%20World", "media_url": "https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png", "confirmation_url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9", "require_confirmation": false}'
 ```
 
 ```javascript
 // Send an MMS message "Hello World"
 // that does not require confirmation
-// from FracTEL phone number 3211234566
-// to a recipent 3211234567
+// from FoneNumber 3215551111
+// to a recipent 3215552222
 // containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 // with a callback url https://hookb.in/vDkMOVB9
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
-var to = "3211234567";
-var fonenumber = "3211234566";
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
+var to = "3215552222";
+var fonenumber = "3215551111";
 var message = "Hello World";
 var opts = {
   'mediaUrl': ["https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png"],
@@ -51,15 +51,15 @@ apiInstance.postMessagesSend(to, fonenumber, message, opts, callback);
 <?php
 // Send an MMS message "Hello World"
 // that does not require confirmation
-// from FracTEL phone number 3211234566
-// to a recipent 3211234567
+// from FoneNumber 3215551111
+// to a recipent 3215552222
 // containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 // with a callback url https://hookb.in/vDkMOVB9
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\MessagesApi();
-$to = "3211234567";
-$fonenumber = "3211234566";
+$to = "3215552222";
+$fonenumber = "3215551111";
 $message = "Hello World";
 $media_url = array("https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png");
 $confirmation_url = "https://hookb.in/vDkMOVB9";
@@ -79,8 +79,8 @@ try {
 ```python
 # Send an MMS message "Hello World"
 # that does not require confirmation
-# from FracTEL phone number 3211234566
-# to a recipent 3211234567
+# from FoneNumber 3215551111
+# to a recipent 3215552222
 # containing an image https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png
 # with a callback url https://hookb.in/vDkMOVB9
 from __future__ import print_function
@@ -91,8 +91,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MessagesApi()
-to = '3211234567'
-fonenumber = '3211234566'
+to = '3215552222'
+fonenumber = '3215551111'
 message = 'Hello World'
 media_url = ['https://www.fractel.net/wp-content/uploads/2014/03/FracTEL_Tag_Logo.png']
 confirmation_url = 'https://hookb.in/vDkMOVB9'
@@ -129,14 +129,22 @@ Method | Route
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 to | string |  | The recipient's 10 digit phone number.
-from | string | | Your 10 digit fonenumber.
+fonenumber | string | | A FoneNumber associated with the account.
 message | string | | Contents of the SMS or MMS.
 media_url<br/>_optional_ | array[string] | | Valid HTTP or HTTPS URL(s) for media to send via MMS. See **Notes** for additional information.
 confirmation_url<br/>_optional_ | string | | Valid HTTP or HTTPS URL that will accept callback data after the message is sent. See **Notes** for additional information.
 require_confirmation<br/>_optional_ | string | | Only send message if confirmation is available. See **Notes** for additional information.
 
+### Response Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+status_code | integer | HTTP status code.
+result | string | Text result of the request.
+uid | string | Unique identifier of the sent message.
+
 <aside class="notice">
-Networks impose a limit of one message per second per sending (`from`) number. Calls that exceed this rate limit will receive an error code of `400 - Rate Limit Exceeded`.
+Networks impose a limit of one message per second per sending (<code>from</code>) number. Calls that exceed this rate limit will receive an error code of <code>400 - Rate Limit Exceeded</code>.
 </aside>
 
 ### Notes
@@ -170,11 +178,9 @@ Extension | File Type | - | Extension | File Type | - | Extension | File Type | 
 .3ga | audio/amr | | .gif | image/gif | | .wap | text/vnd.wap.wml | | .wmv | video/x-ms-wmv
 .amr | audio/amr | | .jpeg | image/jpeg | | .xml | text/xml
 
-Up to ten URLs can be accepted per message.
-
 #### `confirmation_url`
 
-Message sending confirmation callback URLs receive JSON data via a <code>POST</code> request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}</code>
+Message sending confirmation callback URLs receive JSON data via a `POST` request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}`
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
@@ -199,7 +205,7 @@ Sending messages may result in additional charges and fees to your account.
 > Example Request
 
 ```shell
-# Configure FracTEL phone number 3211234567 to receive a callback with
+# Configure FoneNumber 3215551111 to receive a callback with
 # POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 # when a message is sent.
 curl --request POST
@@ -207,16 +213,16 @@ curl --request POST
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
---data '{"from":"3211234567", "method":"POST", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9" }'
+--data '{"fonenumber":"3215551111", "method":"POST", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9" }'
 ```
 
 ```javascript
-// Configure FoneNumber 3211234567 to receive a callback with
+// Configure FoneNumber 3215551111 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
-var fonenumber = "3211234567";
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
+var fonenumber = "3215551111";
 var method = "POST";
 var url = "https://hookb.in/vDkMOVB9";
 var opts = {};
@@ -233,13 +239,13 @@ apiInstance.postMessagesSendNotify(fonenumber, method, url, opts, callback);
 
 ```php
 <?php
-// Configure FoneNumber 3211234567 to receive a callback with
+// Configure FoneNumber 3215551111 to receive a callback with
 // POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 // when a message is sent.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\MessagesApi();
-$fonenumber = "3211234567";
+$fonenumber = "3215551111";
 $method = "POST";
 $url = "https://hookb.in/vDkMOVB9";
 
@@ -253,7 +259,7 @@ try {
 ```
 
 ```python
-# Configure FoneNumber 3211234567 to receive a callback with
+# Configure FoneNumber 3215551111 to receive a callback with
 # POST data (application/x-www-form-urlencoded) to url https://hookb.in/vDkMOVB9
 # when a message is sent.
 from __future__ import print_function
@@ -264,7 +270,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MessagesApi()
-fonenumber = '3211234567'
+fonenumber = '3215551111'
 method = 'POST'
 url = 'https://hookb.in/vDkMOVB9'
 
@@ -285,7 +291,7 @@ except ApiException as e:
 }
 ```
 
-Configure the callback URL to notify when a message is sent. Each FracTEL phone number can be configured to use its own callback URL for handling send notifications.
+Configure the callback URL to notify when a message is sent. Each FoneNumber can be configured to use its own callback URL for handling send notifications.
 
 ### HTTP Request
 
@@ -297,9 +303,16 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-from | string |  | A FoneNumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+
+### Response Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+status_code | integer | HTTP status code.
+result | string | Text result of the request.
 
 ### Notes
 
@@ -324,29 +337,29 @@ from | string | | FoneNumber of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`
 
 ## Receive
 
 > Example Request
 
 ```shell
-# Deliver all messages received by FracTEL phone number 3211234567
+# Deliver all messages received by FoneNumber 3215551111
 # to an email address email@domain.
 $ curl --request POST
 --url 'https://api.fonestorm.com/v2/messages/receive'
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
---data '{"to": "3211234567", "type": "Email", "value": "email@domain.com"}'
+--data '{"fonenumber": "3215551111", "type": "Email", "value": "email@domain.com"}'
 ```
 
 ```javascript
-// Deliver all messages received by FoneNumber 3211234567
+// Deliver all messages received by FoneNumber 3215551111
 // to an email address email@domain.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
-var fonenumber = "3211234567";
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
+var fonenumber = "3215551111";
 var type = "Email";
 var opts = {
   'value': "email@domain.com"
@@ -364,12 +377,12 @@ apiInstance.postMessagesReceive(fonenumber, type, opts, callback);
 
 ```php
 <?php
-// Deliver all messages received by FoneNumber 3211234567
+// Deliver all messages received by FoneNumber 3215551111
 // to an email address email@domain.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\MessagesApi();
-$fonenumber = "3211234567";
+$fonenumber = "3215551111";
 $type = "Email";
 $value = "email@domain.com";
 
@@ -383,7 +396,7 @@ try {
 ```
 
 ```python
-# Deliver all messages received by FoneNumber 3211234567
+# Deliver all messages received by FoneNumber 3215551111
 # to an email address email@domain.
 from __future__ import print_function
 import time
@@ -393,7 +406,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MessagesApi()
-fonenumber = '3211234567'
+fonenumber = '3215551111'
 type = 'Email'
 value = 'email@domain.com'
 
@@ -426,9 +439,16 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | A FoneNumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 type | string | | Message service routing type. Allowed values are `Device`, `Email`, `URL`, `Forward`, or `None`. See **Notes** for additional information.
-value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_ or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
+value | string | | Value of the chosen message routing type. Allows for a _Device ID_, _Email Address_, _URL_, or _Phone Number_ depending on the specified `type`. See **Notes** for additional information.
+
+### Response Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+status_code | integer | HTTP status code.
+result | string | Text result of the request.
 
 ### Notes
 
@@ -445,7 +465,7 @@ Type | Value | Example
 Device | The ID for the destination device | 987123543678
 Email  | An email address                  | bingo@stokes.com
 URL    | A callback URL                    | https://api.yourserver.com/handler.php?msg={{msg}}
-Forward | A forwarding phone number        | 3211234567
+Forward | A forwarding phone number        | 3215551111
 None    | _None_                           |
 
 #### Callback Data
@@ -457,14 +477,14 @@ from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs use the `POST` method and use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs use the `POST` method and use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`
 
 ## Receive Notify
 
 > Example Request
 
 ```shell
-# Configure FracTEL phone number 3211234567 to receive a callback with
+# Configure FoneNumber 3215551111 to receive a callback with
 # JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 # when a message is received.
 $ curl --request POST
@@ -472,16 +492,16 @@ $ curl --request POST
 --header 'Content-Type: application/json'
 --header 'Accept: application/json'
 --header 'token: key'
---data '{"to": "3211234567", "method": "JSON", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9"}'
+--data '{"fonenumber": "3215551111", "method": "JSON", "url": "https%3A%2F%2Fhookb.in%2FvDkMOVB9"}'
 ```
 
 ```javascript
-// Configure FoneNumber 3211234567 to receive a callback with
+// Configure FoneNumber 3215551111 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
-var FracTelApi211 = require('frac_tel_api_211');
-var apiInstance = new FracTelApi211.MessagesApi();
-var fonenumber = "3211234567";
+var FracTelApi = require('frac_tel_api_212');
+var apiInstance = new FracTelApi.MessagesApi();
+var fonenumber = "3215551111";
 var method = "JSON";
 var url = "https://hookb.in/vDkMOVB9";
 var opts = {};
@@ -498,13 +518,13 @@ apiInstance.postMessagesReceiveNotify(fonenumber, method, url, opts, callback);
 
 ```php
 <?php
-// Configure FoneNumber 3211234567 to receive a callback with
+// Configure FoneNumber 3215551111 to receive a callback with
 // JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 // when a message is received.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\MessagesApi();
-$fonenumber = "3211234567";
+$fonenumber = "3215551111";
 $method = "JSON";
 $url = "https://hookb.in/vDkMOVB9";
 
@@ -518,7 +538,7 @@ try {
 ```
 
 ```python
-# Configure FoneNumber 3211234567 to receive a callback with
+# Configure FoneNumber 3215551111 to receive a callback with
 # JSON payload data (application/json) to url https://hookb.in/vDkMOVB9
 # when a message is received.
 from __future__ import print_function
@@ -529,7 +549,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MessagesApi()
-fonenumber = '3211234567'
+fonenumber = '3215551111'
 method = 'JSON'
 url = 'https://hookb.in/vDkMOVB9'
 
@@ -562,15 +582,22 @@ Method | Route
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
-to | string |  | A FoneNumber associated with the account.
+fonenumber | string |  | A FoneNumber associated with the account.
 url | string | | Callback URL. See **Notes** for additional information.
 method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** for additional information.
+
+### Response Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+status_code | integer | HTTP status code.
+result | string | Text result of the request.
 
 ### Notes
 
 #### `url`
 
-This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent to the FracTEL phone number specified in `from`.
+This is a valid HTTP or HTTPS URL that will accept callback data when a message is sent to the FoneNumber specified in `fonenumber`.
 
 #### `method`
 
@@ -589,4 +616,4 @@ from | string | | Phone number of sender.
 message | string | | Contents of the message.
 uid | string | | Unique identifier for the message.
 
-Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: <code>recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}</code>
+Callback URLs using the `GET` method use token replacements to place callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&id={{uid}}`
