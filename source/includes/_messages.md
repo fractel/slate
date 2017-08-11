@@ -180,7 +180,7 @@ Extension | File Type | - | Extension | File Type | - | Extension | File Type | 
 
 #### `confirmation_url`
 
-Message sending confirmation callback URLs receive JSON data via a `POST` request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}`
+Message sending confirmation callback URLs receive JSON data via a `POST` request (see below for a description of the data package) but can also use token replacements to receive callback data values in query string parameters. For example, the following partial query string maps each callback data value to parameters in the query string: `recipient={{to}}&sender={{from}}&message={{msg}}&code={{dc}}&state={{ds}}&id={{uid}}`
 
 Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
@@ -189,6 +189,7 @@ from | string | | FoneNumber of sender.
 message | string | | Contents of the message.
 deliverystate | string | | Delivery state of the message. Potential values are `waiting`, `delivered` or  `not-delivered`.
 deliverycode | int | | Delivery code of the message. Potential values are: <ul><li>`000` - Message delivered to carrier</li><li>`100` - Message not delivered to carrier</li><li>`187` - Statistical spam detected</li><li>`188` - Keyword spam detected</li><li>`189` - Spam detected</li><li>`482` - Loop detected</li><li>`600` - Destination carrier could not accept messages</li><li>`610` - Message submission failed</li><li>`620` - Destination application error</li><li>`630` - Message not acknowledged</li><li>`720` - Invalid destination number</li><li>`740` - Invalid source number</li><li>`999` - Unknown error</li></ul>
+uid | string | | Unique identifier for the message.
 
 #### `require_confirmation`
 
