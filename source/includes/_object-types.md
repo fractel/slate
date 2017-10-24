@@ -4,28 +4,28 @@ These are the core objects you'll find throughout the platform — as part of We
 
 Type | Description
 --------- | -------
-[Authorization](#) | Authorization object.
-[Call](#) | Call object.
-[Callback](#) | Callback object.
-[Conference](#) | Conference object.
-[Contact](#) | Contact object.
-[Email](#) | Email object.
-[Event](#) | Event object.
-[Fax](#) | Fax object.
-[FoneNumber](#) | FoneNumber object.
-[Message](#) | Message object.
-[Service](#) | Service object.
-[Survey](#) | Survey object.
-[Survey Question](#) | Survey question object.
-[Survey Question Choice](#) | Survey question choice object.
-[Survey Response](#) | Survey response object.
+[Authorization](#authorization) | Authorization object.
+[Call](#call) | Call object.
+[Callback](#callback) | Callback object.
+[Conference](#conference) | Conference object.
+[Contact](#contact) | Contact object.
+[Email](#email) | Email object.
+[Event](#event) | Event object.
+[Fax](#fax) | Fax object.
+[FoneNumber](#fonenumber) | FoneNumber object.
+[Message](#message) | Message object.
+[Service](#service) | Service object.
+[Survey](#survey) | Survey object.
+[Survey Question](#survey-question) | Survey question object.
+[Survey Question Choice](#survey-question-choice) | Survey question choice object.
+[Survey Response](#survey-response) | Survey response object.
 
 ## Authorization
 FoneStorm authorization object created as a result of an authentication request. The token is a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token) which can be decoded to obtain additional claims related to the authorization.
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Ijp7ImlkIjoiMjAwNTU1MzIxNiJ9LCJwb3J0YWwiOnsidG9rZW4iOiIzOWI2Zjk3ZGVhZWVjODE1NDhiMjY1ODIyNDFmM2ZmMCJ9LCJpYXQiOjE1MDg4NTA2MzksImV4cCI6MTUwODg1NDIzOX0.7eK0Mj2Dm_PweZbEErAHYUExka5jXVolzMl1xQ7nQ4s" 
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Ijp7ImlkIjoiMjAwNTU1MzIxNiJ9LCJwb3J0YWwiOnsidG9rZW4iOiIzOWI2Zjk3ZGVhZWVjODE1NDhiMjY1ODIyNDFmM2ZmMCJ9LCJpYXQiOjE1MDg4NTA2MzksImV4cCI6MTUwODg1NDIzOX0.7eK0Mj2Dm_PweZbEErAHYUExka5jXVolzMl1xQ7nQ4s"
 }
 ```
 
@@ -522,4 +522,3 @@ answer | string | Answer given for question.
 created_at | date | Date and time of creation.
 updated_at | date | Date and time of last update.
 contact | object | [Contact](#contact) object.
-
