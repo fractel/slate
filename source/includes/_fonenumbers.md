@@ -69,7 +69,6 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
   "fonenumbers": [
     {
       "fonenumber": "3215551111",
@@ -95,9 +94,7 @@ except ApiException as e:
       },
       "is_active": "yes"
     }
-  ],
-  "total": 1,
-  "result": "SUCCESS"
+  ]
 }
 ```
 
@@ -119,18 +116,7 @@ filter | string | fonenumbers | Filter the response attributes. Allowed values a
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-total | integer | Total number of account FoneNumbers listed.
-fonenumbers | array | Array of account FoneNumbers.
-fonenumber | string | FoneNumber.
-sms_options | object | SMS related properties.
-receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
-receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-sms_enabled | string | SMS service is enabled for FoneNumber.
-mms_enabled | string | MMS service is enabled for FoneNumber.
-is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancelation</li><li>`cancel` - canceled</li></ul>.
+fonenumbers | array | Array of [fonenumber](#fonenumber) objects.
 
 ### Notes
 
@@ -212,15 +198,13 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
   "fonenumber": {
     "fonenumber": "3215551111",
     "sms_enabled": "yes",
     "mms_enabled": "yes",
     "state": "FL",
     "rate_center": "SANFORD"
-  },
-  "result": "SUCCESS"
+  }
 }
 ```
 
@@ -246,13 +230,7 @@ Adding a FoneNumber to your account may result in additional charges and fees.
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-fonenumber | string | FoneNumber.
-sms_enabled | string | SMS service is enabled for FoneNumber.
-mms_enabled | string | MMS service is enabled for FoneNumber.
-state | string | State FoneNumber is registered.
-rate_center | string | Rate center for the FoneNumber.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ## Get FoneNumber Details
 
@@ -324,7 +302,6 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
   "fonenumber": {
     "fonenumber": "3215551111",
     "sms_options": {
@@ -348,8 +325,7 @@ except ApiException as e:
       "mms_enabled": "yes"
     },
     "is_active": "yes"
-  },
-  "result": "SUCCESS"
+  }
 }
 ```
 
@@ -371,16 +347,7 @@ fonenumber | string |  | A FoneNumber associated with the account.
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-fonenumber | string | FoneNumber.
-sms_options | object | SMS related properties.
-receive | object | Delivery service type used as the destination to receive messages. <ul><li>`type` - configured service type</li><li>`email` - email address if configured for email</li><li>`device` - FracTEL device if configured for device</li><li>`forward` - telephone number if configured for forward</li><li>`url` - HTTP URL if configured for URL</li><li>`url_method` - HTTP URL method if configured for URL</li></ul>
-receive_notify | object | Callback URL to notify when a message is received. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-send_notify | object | Callback URL to notify when a message is sent. <ul><li>`url` - HTTP URL</li><li>`url_method` - HTTP URL method</li></ul>
-sms_enabled | string | SMS service is enabled for FoneNumber.
-mms_enabled | string | MMS service is enabled for FoneNumber.
-is_active | string | Status of FoneNumber. Potenial values are: <ul><li>`yes` - active</li><li>`no` - pending cancelation</li><li>`cancel` - canceled</li></ul>.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ## Update FoneNumber
 
@@ -465,8 +432,30 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "SUCCESS"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "sms_options": {
+      "receive": {
+        "type": "email",
+        "email": "support@domain.com",
+        "device": "987123543678",
+        "forward": "3215553333",
+        "url": "https://hookb.in/KlwpR3j5",
+        "url_method": "JSON"
+      },
+      "receive_notify": {
+        "url": "https://hookb.in/KNRzy7P3",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://hookb.in/vewOPNyB",
+        "method": "JSON"
+      },
+      "sms_enabled": "yes",
+      "mms_enabled": "yes"
+    },
+    "is_active": "yes"
+  }
 }
 ```
 
@@ -498,8 +487,7 @@ url_password<br/>_optional_ | string |  | URL password for HTTP **Basic** authen
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 
@@ -581,9 +569,30 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "fonenumber": "3215551111",
-  "result": "SUCCESS"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "sms_options": {
+      "receive": {
+        "type": "email",
+        "email": "support@domain.com",
+        "device": "987123543678",
+        "forward": "3215553333",
+        "url": "https://hookb.in/KlwpR3j5",
+        "url_method": "JSON"
+      },
+      "receive_notify": {
+        "url": "https://hookb.in/KNRzy7P3",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://hookb.in/vewOPNyB",
+        "method": "JSON"
+      },
+      "sms_enabled": "yes",
+      "mms_enabled": "yes"
+    },
+    "is_active": "yes"
+  }
 }
 ```
 
@@ -605,6 +614,4 @@ fonenumber | string |  | A FoneNumber associated with the account.
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-fonenumber | string | FoneNumber that was deleted.
+fonenumber | object | [FoneNumber](#fonenumber) object.

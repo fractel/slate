@@ -76,10 +76,9 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "REGISTERED",
-  "token": "1825a1831d69218d474d6829501ac644",
-  "expires": "2017-07-13T21:19:30.000Z"
+  "auth": {
+    "token": "1825a1831d69218d474d6829501ac644",
+  }
 }
 ```
 
@@ -111,10 +110,7 @@ expires<br/>_optional_ | integer | 3600 | Token time to live in seconds. The max
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-token | string | Generated token used for making additional requests.
-expires | datetime | UTC expiration time of token.
+auth | object | [Authorization](#authorization) object.
 
 <aside class="notice">
 API calls that use invalid or expired tokens will receive a response of <code>401 - Unauthorized</code>.

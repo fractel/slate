@@ -110,9 +110,9 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "SUCCESS",
-  "uid": "574330d1cdd7e1566b61b771ac72295f"
+  "message": {
+    "id": "574330d1cdd7e1566b61b771ac72295f"
+  }
 }
 ```
 
@@ -139,9 +139,7 @@ require_confirmation<br/>_optional_ | string | | Only send message if confirmati
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
-uid | string | Unique identifier of the sent message.
+message | object | [Message](#message) object.
 
 <aside class="notice">
 Networks impose a limit of one message per second per sending (<code>from</code>) number. Calls that exceed this rate limit will receive an error code of <code>400 - Rate Limit Exceeded</code>.
@@ -287,8 +285,10 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "SUCCESS"
+  "callback": {
+    "url": "https://requestb.in/16fu9oz1",
+    "method": "JSON"
+  }
 }
 ```
 
@@ -312,8 +312,7 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
+callback | object | [Callback](#callback) object.
 
 ### Notes
 
@@ -423,8 +422,10 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "SUCCESS"
+  "service": {
+    "type": "email",
+    "value": "email@domain.com"
+  }
 }
 ```
 
@@ -448,8 +449,7 @@ value | string | | Value of the chosen message routing type. Allows for a _Devic
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
+service | object | [Service](#service) object.
 
 ### Notes
 
@@ -566,8 +566,10 @@ except ApiException as e:
 
 ```json
 {
-  "status_code": 200,
-  "result": "SUCCESS"
+  "callback": {
+    "url": "https://requestb.in/16fu9oz1",
+    "method": "JSON"
+  }
 }
 ```
 
@@ -591,8 +593,7 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 Property | Type | Description
 --------- | ------- | -----------
-status_code | integer | HTTP status code.
-result | string | Text result of the request.
+callback | object | [Callback](#callback) object.
 
 ### Notes
 

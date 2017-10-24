@@ -1,5 +1,5 @@
 ---
-title: FoneStorm API 2.1.3
+title: FoneStorm API 2.2.0
 
 language_tabs:
   - shell: cURL
@@ -13,8 +13,16 @@ toc_footers:
 includes:
   - introduction
   - authentication
+  - calls
+  - conferences
+  - contacts
+  - emails
+  - events
+  - faxes
   - fonenumbers
   - messages
+  - surveys
+  - object-types
   - errors
 
 search: true
