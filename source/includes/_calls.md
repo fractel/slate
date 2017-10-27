@@ -62,7 +62,7 @@ curl --request POST
 --header 'Content-Type: application/json'
 --header 'Accept: application/json' 
 --header 'token: key' 
---data '{"fonenumber":"3215551081", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
+--data '{"fonenumber":"3215551111", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
 ```
 
 ```javascript
@@ -78,9 +78,51 @@ curl --request POST
 
 ```json
 {
-  "callback": {
-    "url": "https://requestb.in/16fu9oz1",
-    "method": "JSON"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1h8v9c01",
+        "method": "JSON"
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
 ```
@@ -149,7 +191,7 @@ curl --request POST
 --header 'Content-Type: application/json'
 --header 'Accept: application/json' 
 --header 'token: key' 
---data '{"fonenumber":"3215551081", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
+--data '{"fonenumber":"3215551111", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
 ```
 
 ```javascript
@@ -165,9 +207,51 @@ curl --request POST
 
 ```json
 {
-  "callback": {
-    "url": "https://requestb.in/16fu9oz1",
-    "method": "JSON"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1h8v9c01",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
 ```

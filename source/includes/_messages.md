@@ -285,9 +285,51 @@ except ApiException as e:
 
 ```json
 {
-  "callback": {
-    "url": "https://requestb.in/16fu9oz1",
-    "method": "JSON"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "https://hookb.in/vDkMOVB9",
+        "method": "POST"
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
 ```
@@ -422,11 +464,54 @@ except ApiException as e:
 
 ```json
 {
-  "service": {
-    "type": "email",
-    "value": "email@domain.com"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "email",
+        "email": "email@domain.com",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
+
 ```
 
 Configure the delivery service type used as the destination for received messages.
@@ -566,9 +651,51 @@ except ApiException as e:
 
 ```json
 {
-  "callback": {
-    "url": "https://requestb.in/16fu9oz1",
-    "method": "JSON"
+  "fonenumber": {
+    "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "https://hookb.in/vDkMOVB9",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
 ```

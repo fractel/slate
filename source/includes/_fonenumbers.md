@@ -72,6 +72,9 @@ except ApiException as e:
   "fonenumbers": [
     {
       "fonenumber": "3215551111",
+      "state": "FL",
+      "rate_center": "ORLANDO",
+      "is_active": "yes",
       "sms_options": {
         "receive": {
           "type": "email",
@@ -92,7 +95,26 @@ except ApiException as e:
         "sms_enabled": "yes",
         "mms_enabled": "yes"
       },
-      "is_active": "yes"
+      "voice_options": {
+        "receive_notify": {
+          "url": "https://requestb.in/1j0140z1",
+          "method": "JSON"
+        },
+        "send_notify": {
+          "url": "https://requestb.in/1j0140z1",
+          "method": "JSON"
+        }
+      },
+      "fax_options": {
+        "receive_notify": {
+          "url": "https://requestb.in/1j0140z1",
+          "method": "JSON"
+        },
+        "send_notify": {
+          "url": "https://requestb.in/1j0140z1",
+          "method": "JSON"
+        }
+      }
     }
   ]
 }
@@ -200,10 +222,49 @@ except ApiException as e:
 {
   "fonenumber": {
     "fonenumber": "3215551111",
-    "sms_enabled": "yes",
-    "mms_enabled": "yes",
     "state": "FL",
-    "rate_center": "SANFORD"
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
+    "sms_options": {
+      "receive": {
+        "type": "",
+        "email": "",
+        "device": "",
+        "forward": "",
+        "url": "",
+        "url_method": ""
+      },
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      },
+      "sms_enabled": "no",
+      "mms_enabled": "no"
+    },
+    "voice_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "",
+        "method": ""
+      },
+      "send_notify": {
+        "url": "",
+        "method": ""
+      }
+    }
   }
 }
 ```
@@ -304,6 +365,9 @@ except ApiException as e:
 {
   "fonenumber": {
     "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
     "sms_options": {
       "receive": {
         "type": "email",
@@ -324,7 +388,26 @@ except ApiException as e:
       "sms_enabled": "yes",
       "mms_enabled": "yes"
     },
-    "is_active": "yes"
+    "voice_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    }
   }
 }
 ```
@@ -434,6 +517,9 @@ except ApiException as e:
 {
   "fonenumber": {
     "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "yes",
     "sms_options": {
       "receive": {
         "type": "email",
@@ -454,7 +540,26 @@ except ApiException as e:
       "sms_enabled": "yes",
       "mms_enabled": "yes"
     },
-    "is_active": "yes"
+    "voice_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    }
   }
 }
 ```
@@ -571,6 +676,9 @@ except ApiException as e:
 {
   "fonenumber": {
     "fonenumber": "3215551111",
+    "state": "FL",
+    "rate_center": "ORLANDO",
+    "is_active": "cancel",
     "sms_options": {
       "receive": {
         "type": "email",
@@ -591,7 +699,26 @@ except ApiException as e:
       "sms_enabled": "yes",
       "mms_enabled": "yes"
     },
-    "is_active": "yes"
+    "voice_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    },
+    "fax_options": {
+      "receive_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      },
+      "send_notify": {
+        "url": "https://requestb.in/1j0140z1",
+        "method": "JSON"
+      }
+    }
   }
 }
 ```
