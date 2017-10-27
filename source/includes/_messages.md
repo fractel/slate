@@ -312,7 +312,7 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 Property | Type | Description
 --------- | ------- | -----------
-callback | object | [Callback](#callback) object.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 
@@ -449,7 +449,7 @@ value | string | | Value of the chosen message routing type. Allows for a _Devic
 
 Property | Type | Description
 --------- | ------- | -----------
-service | object | [Service](#service) object.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 
@@ -593,7 +593,7 @@ method | string | | Allowed values are `GET`,`POST`, or `JSON`. See **Notes** fo
 
 Property | Type | Description
 --------- | ------- | -----------
-callback | object | [Callback](#callback) object.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 

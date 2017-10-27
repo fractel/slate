@@ -6,7 +6,6 @@ Type | Description
 --------- | -------
 [Authorization](#authorization) | Authorization object.
 [Call](#call) | Call object.
-[Callback](#callback) | Callback object.
 [Conference](#conference) | Conference object.
 [Contact](#contact) | Contact object.
 [Email](#email) | Email object.
@@ -14,7 +13,6 @@ Type | Description
 [Fax](#fax) | Fax object.
 [FoneNumber](#fonenumber) | FoneNumber object.
 [Message](#message) | Message object.
-[Service](#service) | Service object.
 [Survey](#survey) | Survey object.
 [Survey Question](#survey-question) | Survey question object.
 [Survey Question Choice](#survey-question-choice) | Survey question choice object.
@@ -45,23 +43,6 @@ FoneStorm call object created as the result of an inbound or outbound phone call
 Property | Type | Description
 --------- | ------- | -----------
 id | string | Unique identifier.
-
-## Callback
-FoneStorm callback object created as the result of an inbound or outbound callback url configuration.
-
-```json
-{
-  "id": "716a3f4b-2d92-4ba6-bb09-279d05ed336a",
-  "url": "https://requestb.in/1cgzfcc1",
-  "method": "JSON"
-}
-```
-
-Property | Type | Description
---------- | ------- | -----------
-id | string | Unique identifier.
-url | string | URL of configured callback.
-method | string | Request method type for configured URL.
 
 ## Conference
 FoneStorm conference object representing a conference resource in the object store.
@@ -309,23 +290,6 @@ FoneStorm message object created as the result of an inbound or outbound sms or 
 Property | Type | Description
 --------- | ------- | -----------
 id | string | Unique identifier.
-
-## Service
-FoneStorm service object representing the configured service type of a FoneNumber.
-
-```json
-{
-  "fonenumber": "3215551081",
-  "type": "email",
-  "value": "email@domain.com"
-}
-```
-
-Property | Type | Description
---------- | ------- | -----------
-fonenumber | string | FoneNumber associated with service.
-type | string | Configured service type.
-value | string | Value of configured service type.
 
 ## Survey
 FoneStorm survey object representing a survey resource in the object store.

@@ -109,7 +109,7 @@ url\_username<br/>_optional_ | string | | Callback URL password.
 
 Property | Type | Description
 --------- | ------- | -----------
-callback | object | [Callback](#callback) object.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 
@@ -198,7 +198,7 @@ url\_username<br/>_optional_ | string | | Callback URL password.
 
 Property | Type | Description
 --------- | ------- | -----------
-callback | object | [Callback](#callback) object.
+fonenumber | object | [FoneNumber](#fonenumber) object.
 
 ### Notes
 
