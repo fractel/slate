@@ -5,21 +5,85 @@
 > Example Request
 
 ```shell
-curl --request POST 
+# Make a voice call that plays
+# a text-to-speech message
+# from FoneNumber 3215551081
+# to a recipient 3215551802
+curl --request POST
 --url 'https://api.fonestorm.com/v2/calls'
 --header 'Content-Type: application/json'
---header 'Accept: application/json' 
---header 'token: key' 
---data '{"fonenumber":"3215551081", "to":"3215551801", "tts":"Hi, Jane this is a reminder about your appointment scheduled for tomorrow at 12:30pm."}'
+--header 'Accept: application/json'
+--header 'token: key'
+--data '{"fonenumber":"3215551081", "to":"3215551802", "tts":"Hi, Jane this is a reminder about your appointment scheduled for tomorrow at 12:30pm."}'
 ```
 
 ```javascript
+// Make a voice call that plays
+// a text-to-speech message
+// from FoneNumber 3215551081
+// to a recipient 3215551802
+var FoneStormApi220 = require('fone_storm_api_220');
+var apiInstance = new FoneStormApi220.CallsApi();
+var fonenumber = "3215551081";
+var to = "3215551802";
+var opts = {
+  'tts': "Hi, Jane this is a reminder about your appointment scheduled for tomorrow at 12:30pm."
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postCalls(fonenumber, to, opts, callback);
 ```
 
 ```php
+<?php
+// Make a voice call that plays
+// a text-to-speech message
+// from FoneNumber 3215551081
+// to a recipient 3215551802
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CallsApi();
+$fonenumber = "3215551081";
+$to = "3215551802";
+$tts = "Hi, Jane this is a reminder about your appointment scheduled for tomorrow at 12:30pm.";
+
+try {
+    $result = $api_instance->postCalls($fonenumber, $to, $tts);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallsApi->postCalls: ', $e->getMessage(), PHP_EOL;
+}
+?>
 ```
 
 ```python
+# Make a voice call that plays
+# a text-to-speech message
+# from FoneNumber 3215551081
+# to a recipient 3215551802
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CallsApi()
+fonenumber = '3215551081'
+to = '3215551802'
+tts = 'Hi, Jane this is a reminder about your appointment scheduled for tomorrow at 12:30pm.'
+
+try:
+    # Create a new call under the account.
+    api_response = api_instance.post_calls(fonenumber, to, tts=tts)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CallsApi->post_calls: %s\n" % e)
 ```
 
 > Example Response
@@ -57,21 +121,81 @@ call | object | [Call](#call) object.
 > Example Request
 
 ```shell
-curl --request POST 
+# Configure FoneNumber 3215551111 to receive a callback with
+# POST data (application/x-www-form-urlencoded) to url https://requestb.in/1h8v9c01
+# when a voice call is made.
+curl --request POST
 --url 'https://api.fonestorm.com/v2/calls/send_notify'
 --header 'Content-Type: application/json'
---header 'Accept: application/json' 
---header 'token: key' 
+--header 'Accept: application/json'
+--header 'token: key'
 --data '{"fonenumber":"3215551111", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
 ```
 
 ```javascript
+// Configure FoneNumber 3215551111 to receive a callback with
+// POST data (application/x-www-form-urlencoded) to url https://requestb.in/1h8v9c01
+// when a voice call is made.
+var FoneStormApi220 = require('fone_storm_api_220');
+var apiInstance = new FoneStormApi220.CallsApi();
+var fonenumber = "3215551111"; // String | Your FracTEL phone number
+var method = "JSON"; // String | Callback URL method.
+var url = "https://requestb.in/1h8v9c01"; // String | Callback URL.
+var opts = {};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postCallsSendNotify(fonenumber, method, url, opts, callback);
 ```
 
 ```php
+<?php
+// Configure FoneNumber 3215551111 to receive a callback with
+// POST data (application/x-www-form-urlencoded) to url https://requestb.in/1h8v9c01
+// when a voice call is made.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CallsApi();
+$fonenumber = "3215551111";
+$method = "JSON";
+$url = "https://requestb.in/1h8v9c01";
+
+try {
+    $result = $api_instance->postCallsSendNotify($fonenumber, $method, $url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallsApi->postCallsSendNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
 ```
 
 ```python
+# Configure FoneNumber 3215551111 to receive a callback with
+# POST data (application/x-www-form-urlencoded) to url https://requestb.in/1h8v9c01
+# when a voice call is made.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CallsApi()
+fonenumber = '3215551111'
+method = 'JSON'
+url = 'https://requestb.in/1h8v9c01'
+
+try:
+    # Configure the callback URL to notify when a call is made.
+    api_response = api_instance.post_calls_send_notify(fonenumber, method, url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CallsApi->post_calls_send_notify: %s\n" % e)
 ```
 
 > Example Response
@@ -186,21 +310,81 @@ Callback URLs using the `GET` method use token replacements to place callback da
 > Example Request
 
 ```shell
-curl --request POST 
+# Configure FoneNumber 3215551111 to receive a callback with
+# JSON payload data (application/json) to url https://requestb.in/1h8v9c01
+# when a voice call is received.
+curl --request POST
 --url 'https://api.fonestorm.com/v2/calls/receive_notify'
 --header 'Content-Type: application/json'
---header 'Accept: application/json' 
---header 'token: key' 
+--header 'Accept: application/json'
+--header 'token: key'
 --data '{"fonenumber":"3215551111", "method":"JSON", "url":"https://requestb.in/1h8v9c01"}'
 ```
 
 ```javascript
+// Configure FoneNumber 3215551111 to receive a callback with
+// JSON payload data (application/json) to url https://requestb.in/1h8v9c01
+// when a voice call is received.
+var FoneStormApi220 = require('fone_storm_api_220');
+var apiInstance = new FoneStormApi220.CallsApi();
+var fonenumber = "3215551111";
+var method = "JSON";
+var url = "https://requestb.in/1h8v9c01";
+var opts = {};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.postCallsReceiveNotify(fonenumber, method, url, opts, callback);
 ```
 
 ```php
+<?php
+// Configure FoneNumber 3215551111 to receive a callback with
+// JSON payload data (application/json) to url https://requestb.in/1h8v9c01
+// when a voice call is received.
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\CallsApi();
+$fonenumber = "3215551111";
+$method = "method_example";
+$url = "https://requestb.in/1h8v9c01";
+
+try {
+    $result = $api_instance->postCallsReceiveNotify($fonenumber, $method, $url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallsApi->postCallsReceiveNotify: ', $e->getMessage(), PHP_EOL;
+}
+?>
 ```
 
 ```python
+# Configure FoneNumber 3215551111 to receive a callback with
+# JSON payload data (application/json) to url https://requestb.in/1h8v9c01
+# when a voice call is received.
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CallsApi()
+fonenumber = '3215551111'
+method = 'JSON'
+url = 'https://requestb.in/1h8v9c01'
+
+try:
+    # Configure the callback URL to notify when a call is received.
+    api_response = api_instance.post_calls_receive_notify(fonenumber, method, url)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CallsApi->post_calls_receive_notify: %s\n" % e)
 ```
 
 > Example Response

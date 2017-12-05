@@ -14,15 +14,15 @@ includes:
   - introduction
   - authentication
   - calls
-  - conferences
-  - contacts
-  - emails
-  - events
+  # - conferences
+  # - contacts
+  # - emails
+  # - events
   - faxes
   - fonenumbers
   - messages
-  - surveys
-  - object-types
+  # - surveys
+  # - object-types
   - errors
 
 search: true
